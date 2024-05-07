@@ -7,7 +7,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
-    private UnityEngine.Vector3 mousePos;
+    public UnityEngine.Vector3 mousePos;
     public GameObject bullet;
     public Transform bulletTransform;
     public bool canFire;

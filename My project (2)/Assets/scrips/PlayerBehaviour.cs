@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
 
-    [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private float movementSpeed = 6f;
+    [SerializeField] private float dashSpeedFactor = 8f;
+    [SerializeField] private float dashCooldown = 4f;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private Animator animator;
+    public UnityEngine.Vector3 mousePos;
 
     //private float horizontal;
 
@@ -34,6 +38,9 @@ public class PlayerBehaviour : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
 
         //Flip();
+
+        dashCooldown = Mathf.Clamp(dashCooldown - Time.deltaTime, 0, dashCooldown);
+
     }
 
     void FixedUpdate(){
@@ -42,7 +49,17 @@ public class PlayerBehaviour : MonoBehaviour
         if (movementDirection != Vector2.zero){
 
         }
+
+    //dash
+    if (rb.velocity.magnitude >= 2 && Input.GetMouseButtonDown(1) && dashCooldown <= 0)
+    {
+        rb.velocity = rb.velocity * dashSpeedFactor + movementDirection * movementSpeed * dashSpeedFactor;
+        dashCooldown = 5;
     }
+
+    }
+    
+    
     /*private void Flip()
         {
             if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
