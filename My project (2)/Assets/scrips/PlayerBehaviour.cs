@@ -30,8 +30,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(movementDirection.magnitude * movementSpeed));
 
-        //bool flipped = movementDirection.x < 0;
-        //this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
+        bool flipped = movementDirection.x < 0;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
 
         //Flip();
     }
