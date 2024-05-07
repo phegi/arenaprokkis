@@ -9,6 +9,9 @@ public class TohtoriKuti : MonoBehaviour
     private UnityEngine.Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
+    public float lifeTime = 5;
+
+    private float timer = 0;
 
 
 
@@ -21,6 +24,8 @@ public class TohtoriKuti : MonoBehaviour
         rb.velocity = new UnityEngine.Vector2(direction.x, direction.y).normalized;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = UnityEngine.Quaternion.Euler(0, 0, rot + 90);
+
+        
     }
 
     // Update is called once per frame
@@ -28,18 +33,24 @@ public class TohtoriKuti : MonoBehaviour
     {   
         transform.position += transform.up * Time.deltaTime * speed;
 
+        timer += Time.deltaTime;
+
+        if (timer > lifeTime){
+            Destroy(gameObject);
+        } 
         /*if (playerMovement.isFacingRight){
         transform.position += -transform.right * Time.deltaTime * speed;
         }
         if (!playerMovement.isFacingRight){
         transform.position += transform.right * Time.deltaTime * speed;
         }*/
+
     }
 
 
-/*private void OnCollisionEnter2D(Collision2D collision){
+private void OnCollisionEnter2D(Collision2D collision){
     Destroy(gameObject);
-    }*/
+    }
 
 
 }
