@@ -15,6 +15,11 @@ public class enemyStats : MonoBehaviour
         healthBar.SetEnemyHealth(enemyMaxHealth);
     }
 
+    void Update()
+    {
+        healthBar.SetEnemyHealth(enemyCurrentHealth);
+    }
+
     public void TakeDamage(int enemyDamage) // maxhealth minhealth
     {
         int enemyOldHealth = enemyCurrentHealth;

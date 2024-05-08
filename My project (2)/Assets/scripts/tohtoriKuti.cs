@@ -11,7 +11,7 @@ public class TohtoriKuti : MonoBehaviour
     private Rigidbody2D rb;
     public float lifeTime = 5;
     public float knockbackForce;
-
+    public enemyStats enemyStats;
     private float timer = 0;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class TohtoriKuti : MonoBehaviour
         transform.rotation = UnityEngine.Quaternion.Euler(0, 0, rot + 90);
         
         knockbackForce = 969f;
-        Debug.Log(knockbackForce + "vittuna");
+      //  Debug.Log(knockbackForce + "vittuna");
     }
 
     // Update is called once per frame
@@ -55,14 +55,15 @@ public class TohtoriKuti : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Rigidbody2D colliderRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
-            Debug.Log(knockbackForce);
-            Debug.Log(GetComponent<Rigidbody2D>().name + " hit " + collision.gameObject.name);
+   //         Debug.Log(knockbackForce);
+   //         Debug.Log(GetComponent<Rigidbody2D>().name + " hit " + collision.gameObject.name);
             if (colliderRigidbody != null)
             {
                 UnityEngine.Vector2 direction = transform.position - collision.transform.position;
                 colliderRigidbody.AddForce(-direction * knockbackForce, ForceMode2D.Force);
             }
             Destroy(gameObject);
+            collision.gameObject.GetComponent<enemyStats>().TakeDamage(10);
         }
 
         else
