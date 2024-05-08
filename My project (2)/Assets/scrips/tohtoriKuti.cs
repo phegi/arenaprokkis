@@ -25,8 +25,6 @@ public class TohtoriKuti : MonoBehaviour
         rb.velocity = new UnityEngine.Vector2(direction.x, direction.y).normalized;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = UnityEngine.Quaternion.Euler(0, 0, rot + 90);
-
-        
     }
 
     // Update is called once per frame
@@ -54,10 +52,12 @@ public class TohtoriKuti : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Rigidbody2D colliderRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
+            Debug.Log(knockbackForce);
             Debug.Log(GetComponent<Rigidbody2D>().name + " hit " + collision.gameObject.name);
             if (colliderRigidbody != null)
             {
-                colliderRigidbody.AddForce(-transform.position * knockbackForce, ForceMode2D.Force);
+                UnityEngine.Vector2 direction = transform.position - collision.transform.position;
+                colliderRigidbody.AddForce(-direction * knockbackForce, ForceMode2D.Force);
             }
             Destroy(gameObject);
         }
