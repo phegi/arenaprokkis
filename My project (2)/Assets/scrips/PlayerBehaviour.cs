@@ -7,12 +7,14 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed = 6f;
-    [SerializeField] private float dashSpeedFactor = 8f;
-    [SerializeField] private float dashCooldown = 4f;
+    [SerializeField] private float dashSpeedFactor = 20f;
+    [SerializeField] private float dashCooldown = 5f;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private Animator animator;
     public UnityEngine.Vector3 mousePos;
+
+    public bool isDashing = false;
 
     //private float horizontal;
 
@@ -37,9 +39,17 @@ public class PlayerBehaviour : MonoBehaviour
         bool flipped = movementDirection.x < 0;
         this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
 
+        if (rb.velocity.magnitude >= 2 && Input.GetMouseButtonDown(1) && dashCooldown <= 0)
+    {
+            isDashing = true;
+
+    }
+
         //Flip();
 
         dashCooldown = Mathf.Clamp(dashCooldown - Time.deltaTime, 0, dashCooldown);
+
+
 
     }
 
@@ -49,13 +59,14 @@ public class PlayerBehaviour : MonoBehaviour
         if (movementDirection != Vector2.zero){
 
         }
+        if (isDashing){
+            rb.velocity = rb.velocity * dashSpeedFactor + movementDirection * movementSpeed * dashSpeedFactor;
+            dashCooldown = 5f; 
+            isDashing = false;           
+        }
+
 
     //dash
-    if (rb.velocity.magnitude >= 2 && Input.GetMouseButtonDown(1) && dashCooldown <= 0)
-    {
-        rb.velocity = rb.velocity * dashSpeedFactor + movementDirection * movementSpeed * dashSpeedFactor;
-        dashCooldown = 5;
-    }
 
     }
     
