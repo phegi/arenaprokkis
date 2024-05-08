@@ -52,6 +52,12 @@ public class TohtoriKuti : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+   //     if (collision.gameObject.CompareTag("Player"))
+   //     {
+   //         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.collider);
+   //         Debug.Log(gameObject.GetComponent<Collider2D>().name + " hit " + collision.collider.name);
+   //     }
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Rigidbody2D colliderRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();

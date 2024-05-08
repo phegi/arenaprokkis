@@ -13,11 +13,11 @@ TagManager:
   - Obstacle
   - Water
   - UI
+  - Player
   - 
+  - Enemy
   - 
-  - 
-  - 
-  - 
+  - Projectile
   - 
   - 
   - 

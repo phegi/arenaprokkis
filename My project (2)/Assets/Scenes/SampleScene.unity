@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 743506287}
   - component: {fileID: 743506286}
   - component: {fileID: 743506293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: valkoMonsu
   m_TagString: Enemy
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 1343625296}
   - component: {fileID: 1343625297}
   - component: {fileID: 1343625298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2206,6 +2206,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7491497862188409020, guid: acf9f01cba83738459feffc26c43c8b7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491497862188409020, guid: acf9f01cba83738459feffc26c43c8b7, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -2239,7 +2243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078730459}
   - component: {fileID: 2078730460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2430,7 +2434,7 @@ GameObject:
   - component: {fileID: 2140500124}
   - component: {fileID: 2140500123}
   - component: {fileID: 2140500128}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
