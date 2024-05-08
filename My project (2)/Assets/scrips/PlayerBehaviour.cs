@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float movementSpeed = 6f;
     [SerializeField] private float dashSpeedFactor = 20f;
     [SerializeField] private float dashCooldown = 5f;
+    [SerializeField] public float knockbackForce = 200f;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private Animator animator;
@@ -25,6 +26,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        dashCooldown = 0;//4s sob
     }
 
     // Update is called once per frame

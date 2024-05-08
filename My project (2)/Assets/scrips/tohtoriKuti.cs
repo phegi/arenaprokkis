@@ -10,10 +10,11 @@ public class TohtoriKuti : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float lifeTime = 5;
+    public float knockbackForce;
 
     private float timer = 0;
 
-
+    // Start is called before the first frame update
 
     void Start(){
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -48,9 +49,22 @@ public class TohtoriKuti : MonoBehaviour
     }
 
 
-private void OnCollisionEnter2D(Collision2D collision){
-    Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Rigidbody2D colliderRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
+            Debug.Log(GetComponent<Rigidbody2D>().name + " hit " + collision.gameObject.name);
+            if (colliderRigidbody != null)
+            {
+                colliderRigidbody.AddForce(-transform.position * knockbackForce, ForceMode2D.Force);
+            }
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
-
 }
