@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
 
-    [SerializeField] private float movementSpeed = 6f;
+    [SerializeField] private float movementSpeed = 8f;
     [SerializeField] private float dashSpeedFactor = 20f;
-    [SerializeField] private float dashCooldown = 5f;
-    [SerializeField] public float knockbackForce = 200f;
+    [SerializeField] private float dashCooldown = 4f;
+    [SerializeField] public float knockbackForce;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private Animator animator;
@@ -63,7 +63,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         if (isDashing){
             rb.velocity = rb.velocity * dashSpeedFactor + movementDirection * movementSpeed * dashSpeedFactor;
-            dashCooldown = 5f; 
+            dashCooldown = 4f; 
             isDashing = false;           
         }
 
