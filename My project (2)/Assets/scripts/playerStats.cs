@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerStats : MonoBehaviour
@@ -16,6 +17,15 @@ public class playerStats : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            TakeDamage(10);
+        }
+    }
+
+
     public void TakeDamage(int damage) //tarkistaa, että hela ei mene yli maxHealth ja alle 0
     {
         int oldHealth = currentHealth;
@@ -27,6 +37,9 @@ public class playerStats : MonoBehaviour
         {
             healthBar.SetHealth(currentHealth);
         }
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-
 }

@@ -31,5 +31,9 @@ public class enemyStats : MonoBehaviour
         {
             healthBar.SetEnemyHealth(enemyCurrentHealth);
         }
+        if (enemyCurrentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
