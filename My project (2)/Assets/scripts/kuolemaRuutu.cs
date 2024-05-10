@@ -17,6 +17,6 @@ public class kuolemaRuutu : MonoBehaviour
     }
     public void mainMenuButton()
     {
-        Debug.Log("Work in progress");
+        SceneManager.LoadScene("MainMenu");
     }
 }
