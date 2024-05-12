@@ -26,7 +26,8 @@ public class PlayerBehaviour : MonoBehaviour
         maxHealth,
         movementSpeed,
         dashSpeedFactor,
-        dashCooldown
+        dashCooldown,
+        currentHealth
     }
     void Start()
     {
@@ -60,7 +61,17 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("iFrameFlashing", false);
             rb.excludeLayers = 0;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            float päivitys = GetStat(Stat.maxHealth) + 20f;
+            Debug.Log("max hela + 20 on: " + päivitys);
+            UpdateStat(Stat.maxHealth, päivitys);
+            UpdateStat(Stat.currentHealth, päivitys);
+            healthBar.SetMaxHealth(GetStat(Stat.maxHealth));
+            healthBar.SetHealth(GetStat(Stat.maxHealth));
+        }
+
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             TakeDamage(10);
@@ -93,16 +104,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        float oldHealth = currentHealth;
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, GetStat(Stat.maxHealth));
+        float oldHealth = GetStat(Stat.currentHealth);
+        float healtAfterDamage = GetStat(Stat.currentHealth) - damage;
+        UpdateStat(Stat.currentHealth, healtAfterDamage);
+        //currentHealth = Mathf.Clamp(currentHealth, 0, GetStat(Stat.maxHealth));
 
-        if (oldHealth != currentHealth)
+        if (oldHealth != healtAfterDamage)
         {
-            healthBar.SetHealth(currentHealth);
+            healthBar.SetHealth(healtAfterDamage);
         }
 
-        if (currentHealth <= 0)
+        if (healtAfterDamage <= 0)
         {
             Destroy(gameObject);
         }
@@ -114,6 +126,8 @@ public class PlayerBehaviour : MonoBehaviour
         stats.Add(Stat.dashCooldown, dashCooldown);
         stats.Add(Stat.dashSpeedFactor, dashSpeedFactor);
         stats.Add(Stat.movementSpeed, movementSpeed);
+        stats.Add(Stat.currentHealth, maxHealth);
+
     }
 
     public float GetStat(Stat stat) //Hakee pelaajan yksittäisen statsin Dictionarysta.
