@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -380, y: -100}
+  m_AnchoredPosition: {x: -339, y: -5}
   m_SizeDelta: {x: 120, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155015763
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 373809749}
   - component: {fileID: 373809752}
   - component: {fileID: 373809751}
-  - component: {fileID: 373809750}
+  - component: {fileID: 373809753}
   m_Layer: 5
   m_Name: MenuOptions
   m_TagString: Untagged
@@ -575,18 +575,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &373809750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373809748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02e9ace907c73064587df68d55c0b890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &373809751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_Color: {r: 0.258699, g: 0.3773585, b: 0.24029905, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -625,6 +613,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373809748}
   m_CullTransparentMesh: 1
+--- !u!114 &373809753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373809748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b7730de0839ba449e2dc67b7054b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryCanvas: {fileID: 515569605}
 --- !u!1 &447828783
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270, y: 12.5}
+  m_AnchoredPosition: {x: -356.85, y: -110.53}
   m_SizeDelta: {x: 120, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &447828785
@@ -708,7 +709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -757,6 +758,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447828783}
+  m_CullTransparentMesh: 1
+--- !u!1 &515569605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515569606}
+  - component: {fileID: 515569608}
+  - component: {fileID: 515569607}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &515569606
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515569605}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1401139908}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -180.83577, y: -76.52334}
+  m_SizeDelta: {x: 724.6574, y: 575.8428}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &515569607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515569605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &515569608
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515569605}
   m_CullTransparentMesh: 1
 --- !u!1 &569636011
 GameObject:
@@ -841,7 +917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -866,7 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9150943, g: 0.8745805, b: 0.41869882, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -974,7 +1050,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -999,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8867924, g: 0.3973834, b: 0.3973834, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1107,7 +1183,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -1348,7 +1424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\\o/\n  l\n /\\"
+  m_text: "\\0/\n  l\n /\\"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d3f50cdbd22d974db6d5f0d71a5ae77, type: 2}
   m_sharedMaterial: {fileID: -8520069567174790737, guid: 3d3f50cdbd22d974db6d5f0d71a5ae77, type: 2}
@@ -1840,7 +1916,7 @@ GameObject:
   - component: {fileID: 1401139910}
   - component: {fileID: 1401139909}
   m_Layer: 5
-  m_Name: PlayButton (3)
+  m_Name: InventoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1859,11 +1935,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1278263075}
+  - {fileID: 515569606}
   m_Father: {fileID: 373809749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 392.54, y: 221}
+  m_AnchoredPosition: {x: 392.54, y: 229.57}
   m_SizeDelta: {x: 81.7642, y: 26.0528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401139909
@@ -1885,7 +1962,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1910,9 +1987,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
-        m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
-        m_MethodName: playButton
+      - m_Target: {fileID: 373809753}
+        m_TargetAssemblyTypeName: landingButton, Assembly-CSharp
+        m_MethodName: activateInventoryCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2017,7 +2094,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Arena
+  m_text: 'Arena
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d3f50cdbd22d974db6d5f0d71a5ae77, type: 2}
   m_sharedMaterial: {fileID: -8520069567174790737, guid: 3d3f50cdbd22d974db6d5f0d71a5ae77, type: 2}
@@ -2311,7 +2390,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -2980,7 +3059,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -3215,7 +3294,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -3301,7 +3380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 509, y: 306.38}
+  m_AnchoredPosition: {x: 510, y: 291}
   m_SizeDelta: {x: 41.8629, y: 10.987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1908058442
@@ -3348,7 +3427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: settingsButton
         m_Mode: 1
@@ -3481,7 +3560,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: playButton
         m_Mode: 1
@@ -3614,7 +3693,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373809750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: exitButton
         m_Mode: 1
