@@ -60,6 +60,11 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("iFrameFlashing", false);
             rb.excludeLayers = 0;
         }
+        
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            TakeDamage(10);
+        }
     }
 
     void FixedUpdate()

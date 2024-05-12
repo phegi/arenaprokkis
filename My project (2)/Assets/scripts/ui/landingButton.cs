@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class landingButton : MonoBehaviour
 {
@@ -20,5 +22,9 @@ public class landingButton : MonoBehaviour
             InventoryCanvas.SetActive(false);
             inventoryActive = false;
         }
+    }
+    public void playButton()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
