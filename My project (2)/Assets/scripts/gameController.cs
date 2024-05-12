@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class gameController : MonoBehaviour
 {
     public kuolemaRuutu kuolemaRuutu;
-    public playerStats playerStats;
+    public PlayerBehaviour playerBehaviour;
     public pauseMenu pauseMenu;
 
     void Update()
     {
-        if (playerStats.currentHealth == 0)
+        if (playerBehaviour.currentHealth == 0)
         {
             kuolemaRuutu.Setup();
         }

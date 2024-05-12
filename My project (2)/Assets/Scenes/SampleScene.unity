@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kuolemaRuutu: {fileID: 918069902}
-  playerStats: {fileID: 2140500128}
+  playerBehaviour: {fileID: 2140500126}
   pauseMenu: {fileID: 87286007}
 --- !u!1 &729880789
 GameObject:
@@ -3187,7 +3187,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 3
   fill: {fileID: 432573148}
   "helaM\xE4\xE4r\xE4": {fileID: 871406139}
-  playerStats: {fileID: 2140500128}
+  playerBehaviour: {fileID: 2140500126}
 --- !u!1 &1845022392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,7 +3596,6 @@ GameObject:
   - component: {fileID: 2140500125}
   - component: {fileID: 2140500124}
   - component: {fileID: 2140500123}
-  - component: {fileID: 2140500128}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3719,12 +3718,13 @@ MonoBehaviour:
   movementSpeed: 8
   dashSpeedFactor: 20
   dashCooldown: 4
-  knockbackForce: 0
-  mousePos: {x: 0, y: 0, z: 0}
-  playerStats: {fileID: 2140500128}
+  rb: {fileID: 0}
   isDashing: 0
   iFrame: 0
   iFrameTimer: 0
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 1829913030}
 --- !u!61 &2140500127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3770,21 +3770,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2140500128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140500122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bda179e146aee4892d52acc16aa325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 1829913030}
 --- !u!1001 &3868611235629280353
 PrefabInstance:
   m_ObjectHideFlags: 0

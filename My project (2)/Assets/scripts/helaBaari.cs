@@ -11,7 +11,7 @@ public class helaBaari : MonoBehaviour
     public Image fill;
     [SerializeField]
     public TextMeshProUGUI helaMäärä;
-    public playerStats playerStats;
+    public  PlayerBehaviour playerBehaviour;
 
     void Start()
     {
@@ -31,10 +31,10 @@ public class helaBaari : MonoBehaviour
     {
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
-        helaMäärä.text = slider.value + "/" + playerStats.maxHealth;
+        helaMäärä.text = slider.value + "/" + playerBehaviour.maxHealth;
     }
     void UpdateHealthText() // teksti päivitetään void Startissa(), sekä joka kerta kun hela päivittyy.
     {
-        helaMäärä.text = slider.value + "/" + playerStats.maxHealth;
+        helaMäärä.text = slider.value + "/" + playerBehaviour.maxHealth;
     }
 }
