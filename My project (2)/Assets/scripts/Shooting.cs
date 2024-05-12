@@ -15,6 +15,7 @@ public class Shooting : MonoBehaviour
     public float timeBetweenFiring;
 
 
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -26,21 +27,24 @@ public class Shooting : MonoBehaviour
 
         UnityEngine.Vector3 rotation = mousePos - transform.position;
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x)  * Mathf.Rad2Deg;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = UnityEngine.Quaternion.Euler(0, 0, rotZ);
 
 
-        if(!canFire){
+        if (!canFire)
+        {
             timer += Time.deltaTime;
-            if (timer > timeBetweenFiring){
+            if (timer > timeBetweenFiring)
+            {
                 timer = 0;
                 canFire = true;
             }
         }
 
 
-        if (Input.GetMouseButton(0) && canFire){
+        if (Input.GetMouseButton(0) && canFire && Time.timeScale > 0)
+        {
             canFire = false;
             Instantiate(bullet, bulletTransform.position, UnityEngine.Quaternion.identity);
         }

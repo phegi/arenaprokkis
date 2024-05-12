@@ -7,6 +7,7 @@ public class gameController : MonoBehaviour
 {
     public kuolemaRuutu kuolemaRuutu;
     public playerStats playerStats;
+    public pauseMenu pauseMenu;
 
     void Update()
     {
@@ -14,5 +15,10 @@ public class gameController : MonoBehaviour
         {
             kuolemaRuutu.Setup();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.pauseGame();
+        }
     }
-} 
+}
+
