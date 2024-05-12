@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,12 +11,20 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float dashSpeedFactor = 20f;
     [SerializeField] private float dashCooldown = 4f;
     [SerializeField] public float knockbackForce;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Vector2 movementDirection;
     private Animator animator;
+
+    private BoxCollider2D boxCollider;
     public UnityEngine.Vector3 mousePos;
 
+    public playerStats playerStats;
+
     public bool isDashing = false;
+
+    public bool iFrame = false;
+
+    public float iFrameTimer = 0;
 
     //private float horizontal;
 
@@ -27,7 +36,8 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         dashCooldown = 0;//4s sob
-    }
+
+        }
 
     // Update is called once per frame
     void Update()
@@ -52,6 +62,12 @@ public class PlayerBehaviour : MonoBehaviour
         dashCooldown = Mathf.Clamp(dashCooldown - Time.deltaTime, 0, dashCooldown);
 
 
+        iFrameTimer = Mathf.Clamp(iFrameTimer - Time.deltaTime, 0, iFrameTimer);
+        if (iFrameTimer == 0){
+            iFrame = false;
+            this.animator.SetBool("iFrameFlashing", false);
+            rb.excludeLayers = 0;
+        }
 
     }
 
@@ -68,10 +84,20 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
 
+
+
     //dash
 
     }
-    
+    private void OnCollisionStay2D(Collision2D collision){
+    if (collision.gameObject.CompareTag("Enemy") && !iFrame){
+        this.playerStats.TakeDamage(10);
+        this.animator.SetBool("iFrameFlashing", true);
+        iFrame = true;
+        iFrameTimer = 2f;
+        rb.excludeLayers = 256;
+    }
+    }
     
     /*private void Flip()
         {

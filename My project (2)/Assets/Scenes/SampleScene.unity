@@ -883,7 +883,7 @@ MonoBehaviour:
   radius: 6.55
   height: 2
   canMove: 1
-  maxSpeed: 8.78
+  maxSpeed: 3.8
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -3721,7 +3721,10 @@ MonoBehaviour:
   dashCooldown: 4
   knockbackForce: 0
   mousePos: {x: 0, y: 0, z: 0}
+  playerStats: {fileID: 2140500128}
   isDashing: 0
+  iFrame: 0
+  iFrameTimer: 0
 --- !u!61 &2140500127
 BoxCollider2D:
   m_ObjectHideFlags: 0
