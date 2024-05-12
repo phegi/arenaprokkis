@@ -1,36 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+
+[CreateAssetMenu(menuName = "Player stats")]
 
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 8f;
     [SerializeField] private float dashSpeedFactor = 20f;
     [SerializeField] private float dashCooldown = 4f;
+    public int maxHealth = 100;
     public Rigidbody2D rb;
     private Vector2 movementDirection;
     private Animator animator;
     public bool isDashing = false;
     public bool iFrame = false;
     public float iFrameTimer = 0;
-
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
     public helaBaari healthBar;
+    public Dictionary<Stat, float> stats = new Dictionary<Stat, float>();
 
+    public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
+    {
+        maxHealth,
+        movementSpeed,
+        dashSpeedFactor,
+        dashCooldown
+    }
     void Start()
     {
+        SetPlayerStats();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        dashCooldown = 0; // 4s sob
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        UpdateStat(Stat.dashCooldown, 0f); //4s sob
+        currentHealth = GetStat(Stat.maxHealth);
+        healthBar.SetMaxHealth(GetStat(Stat.maxHealth));
     }
 
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        animator.SetFloat("Speed", Mathf.Abs(movementDirection.magnitude * movementSpeed));
+        animator.SetFloat("Speed", Mathf.Abs(movementDirection.magnitude * GetStat(Stat.movementSpeed)));
 
         bool flipped = movementDirection.x < 0;
         transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
@@ -53,11 +64,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = movementDirection * movementSpeed;
+        rb.velocity = movementDirection * GetStat(Stat.movementSpeed);
 
         if (isDashing)
         {
-            rb.velocity = rb.velocity * dashSpeedFactor + movementDirection * movementSpeed * dashSpeedFactor;
+            rb.velocity = rb.velocity * GetStat(Stat.dashSpeedFactor) + movementDirection * GetStat(Stat.movementSpeed) * GetStat(Stat.dashSpeedFactor);
             dashCooldown = 4f;
             isDashing = false;
         }
@@ -77,9 +88,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        int oldHealth = currentHealth;
+        float oldHealth = currentHealth;
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, GetStat(Stat.maxHealth));
 
         if (oldHealth != currentHealth)
         {
@@ -89,6 +100,39 @@ public class PlayerBehaviour : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void SetPlayerStats() //asettaa pelaajan kaikki statsit Dictionaryyn "Stat".
+    {
+        stats.Add(Stat.maxHealth, maxHealth);
+        stats.Add(Stat.dashCooldown, dashCooldown);
+        stats.Add(Stat.dashSpeedFactor, dashSpeedFactor);
+        stats.Add(Stat.movementSpeed, movementSpeed);
+    }
+
+    public float GetStat(Stat stat) //Hakee pelaajan yksittäisen statsin Dictionarysta.
+    {
+        if (stats.TryGetValue(stat, out float value))
+        {
+            return value;
+        }
+        else
+        {
+            Debug.LogError($"No stat value found for {stat} in {this.name}");
+            return 0;
+        }
+    }
+
+    private void UpdateStat(Stat stat, float value) // Päivittää pelaajan yksittäisen statsin Dictionaryyn.
+    {
+        if (stats.ContainsKey(stat))
+        {
+            stats[stat] = value;
+        }
+        else
+        {
+            Debug.LogError($"No stat value found for {stat} in {this.name}");
         }
     }
 }
