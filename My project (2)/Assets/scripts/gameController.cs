@@ -11,7 +11,7 @@ public class gameController : MonoBehaviour
 
     void Update()
     {
-        if (playerBehaviour.currentHealth == 0)
+        if (playerBehaviour.GetStat(PlayerBehaviour.Stat.currentHealth) <= 0)
         {
             kuolemaRuutu.Setup();
         }

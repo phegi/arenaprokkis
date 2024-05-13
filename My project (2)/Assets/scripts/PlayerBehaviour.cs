@@ -20,13 +20,14 @@ public class PlayerBehaviour : MonoBehaviour
     public float currentHealth;
     public helaBaari healthBar;
     public Dictionary<Stat, float> stats = new Dictionary<Stat, float>();
+    public kuolemaRuutu kuolemaRuutu;
 
     public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
     {
-        maxHealth,
-        movementSpeed,
-        dashSpeedFactor,
-        dashCooldown,
+        maxHealth = 100,
+        movementSpeed = 8,
+        dashSpeedFactor = 10,
+        dashCooldown = 3,
         currentHealth
     }
     void Start()
@@ -36,7 +37,6 @@ public class PlayerBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         UpdateStat(Stat.dashCooldown, 0f); //4s sob
         currentHealth = GetStat(Stat.maxHealth);
-        healthBar.SetMaxHealth(GetStat(Stat.maxHealth));
     }
 
     void Update()
@@ -62,17 +62,24 @@ public class PlayerBehaviour : MonoBehaviour
             rb.excludeLayers = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             float päivitys = GetStat(Stat.maxHealth) + 20f;
             Debug.Log("max hela + 20 on: " + päivitys);
             UpdateStat(Stat.maxHealth, päivitys);
             UpdateStat(Stat.currentHealth, päivitys);
-            healthBar.SetMaxHealth(GetStat(Stat.maxHealth));
-            healthBar.SetHealth(GetStat(Stat.maxHealth));
+            healthBar.SetMaxHealth();
+            healthBar.SetHealth();
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+       
+
+
+        // JOuduin tän kommentoimaan et pystyn testaa noit juttuja mut jos saat toimimaan uudelleen mun muutoksien kanssa nii vois ottaa uudelleen käyttöön.
+        //helabaarin pitäis nyt päivittyä pelkästään dictionaryn mukaan
+        // also onks joku scriptable obj
+        // sit pitäis saada ne fieldit tonne mistä voi muuttaa inspectorista niitä arvoja pelaajan statseihin ja nähä ne muutenki
+         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             TakeDamage(10);
         }
@@ -104,30 +111,47 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        float oldHealth = GetStat(Stat.currentHealth);
-        float healtAfterDamage = GetStat(Stat.currentHealth) - damage;
-        UpdateStat(Stat.currentHealth, healtAfterDamage);
+        /*float oldHealth = GetStat(Stat.currentHealth);
+        
+        UpdateStat(Stat.currentHealth, healthAfterDamage);
         //currentHealth = Mathf.Clamp(currentHealth, 0, GetStat(Stat.maxHealth));
 
-        if (oldHealth != healtAfterDamage)
+        if (oldHealth != healthAfterDamage)
         {
-            healthBar.SetHealth(healtAfterDamage);
-        }
+            healthBar.SetHealth();
+        }*/
 
-        if (healtAfterDamage <= 0)
+
+//////////////  tää pitää laittaa kokonaan uusiks varmaan. En osannu.
+        float newHealth = GetStat(Stat.currentHealth) - damage;
+        UpdateStat(Stat.currentHealth, newHealth);
+        if (newHealth != currentHealth)
         {
-            Destroy(gameObject);
+            healthBar.SetHealth();
+            currentHealth = newHealth;
+        }
+        
+
+        currentHealth = newHealth;
+
+        if (currentHealth == 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 
     private void SetPlayerStats() //asettaa pelaajan kaikki statsit Dictionaryyn "Stat".
     {
+
+//////////////// Statseja ei pysty säätää täl hetkellä mistään eikä getStat funktio tee mitään ku yhtäkään statsia ei oo määritelty/ei oo määrää.
         stats.Add(Stat.maxHealth, maxHealth);
         stats.Add(Stat.dashCooldown, dashCooldown);
         stats.Add(Stat.dashSpeedFactor, dashSpeedFactor);
         stats.Add(Stat.movementSpeed, movementSpeed);
         stats.Add(Stat.currentHealth, maxHealth);
 
+        // siirsin clampin tänne. pitäis pitää maxhealth ja 0 helarajat.
+        Mathf.Clamp(currentHealth, 0, maxHealth);
     }
 
     public float GetStat(Stat stat) //Hakee pelaajan yksittäisen statsin Dictionarysta.
