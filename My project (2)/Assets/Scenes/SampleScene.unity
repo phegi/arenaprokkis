@@ -1092,6 +1092,8 @@ MonoBehaviour:
   enemyMaxHealth: 350
   enemyCurrentHealth: 350
   healthBar: {fileID: 1024391830}
+  expcounter: {fileID: 0}
+  playerbehaviour: {fileID: 0}
 --- !u!1 &848877254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,13 +3668,13 @@ MonoBehaviour:
   dashSpeedFactor: 20
   dashCooldown: 4
   maxHealth: 100
-  rb: {fileID: 0}
+  currentHealth: 0
   isDashing: 0
   iFrame: 0
   iFrameTimer: 0
-  currentHealth: 0
-  healthBar: {fileID: 1829913030}
   kuolemaRuutu: {fileID: 918069902}
+  healthBar: {fileID: 1829913030}
+  expcounter: {fileID: 0}
 --- !u!61 &2140500127
 BoxCollider2D:
   m_ObjectHideFlags: 0

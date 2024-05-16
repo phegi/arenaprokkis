@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player stats")]
+//[CreateAssetMenu(menuName = "Player stats")]
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -27,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     public kuolemaRuutu kuolemaRuutu;
     private Animator animator;
     public helaBaari healthBar;
+    public expCounter expcounter;
 
 
     public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
@@ -165,6 +166,17 @@ public class PlayerBehaviour : MonoBehaviour
         else
         {
             Debug.LogError($"No stat value found for {stat} in {this.name}");
+        }
+    }
+
+    public void LevelUp()
+    {
+        if (expcounter.GetExp == expcounter.GetExpToNextLevel)
+        {
+            expcounter.UpdateLevel();
+            expcounter.ResetExp();
+            expcounter.UpdateExpToNextLevel();
+            Debug.Log(expcounter.GetLevel);
         }
     }
 }

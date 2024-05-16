@@ -8,13 +8,42 @@ public class enemyStats : MonoBehaviour
     public int enemyMaxHealth = 350;
     public int enemyCurrentHealth;
     public vihuHelaBaari healthBar;
+    public expCounter expcounter;
+    public PlayerBehaviour playerbehaviour;
 
     void Start()
     {
         enemyCurrentHealth = enemyMaxHealth;
         healthBar.SetEnemyHealth(enemyMaxHealth);
 
-        /* switch (enemyType)
+        
+    }
+    void Update()
+    {
+        healthBar.SetEnemyHealth(enemyCurrentHealth);
+    }
+
+    public void TakeDamage(int enemyDamage) // maxhealth minhealth
+    {
+        int enemyOldHealth = enemyCurrentHealth;
+        enemyCurrentHealth -= enemyDamage;
+
+        enemyCurrentHealth = Mathf.Clamp(enemyCurrentHealth, 0, enemyMaxHealth);
+
+        if (enemyOldHealth != enemyCurrentHealth)
+        {
+            healthBar.SetEnemyHealth(enemyCurrentHealth);
+        }
+        if (enemyCurrentHealth <= 0)
+        {
+            Destroy(gameObject);
+            expcounter.UpdateExp(10);
+            playerbehaviour.LevelUp();
+        }
+    }
+}
+
+/* switch (enemyType)
          {
             case "valkoMonsu":
                 SetEnemyStats
@@ -49,9 +78,8 @@ public class enemyStats : MonoBehaviour
                 )
                 break;
          }*/
-    }
 
-    /*
+         /*
         void SetEnemyStats (float health, float damage, float speed, float knockbackRes, float damageRes)
         {
             EnemyStats stats = GetComponent<EnemyStats>();
@@ -63,26 +91,3 @@ public class enemyStats : MonoBehaviour
         }
         }
     */
-
-    void Update()
-    {
-        healthBar.SetEnemyHealth(enemyCurrentHealth);
-    }
-
-    public void TakeDamage(int enemyDamage) // maxhealth minhealth
-    {
-        int enemyOldHealth = enemyCurrentHealth;
-        enemyCurrentHealth -= enemyDamage;
-
-        enemyCurrentHealth = Mathf.Clamp(enemyCurrentHealth, 0, enemyMaxHealth);
-
-        if (enemyOldHealth != enemyCurrentHealth)
-        {
-            healthBar.SetEnemyHealth(enemyCurrentHealth);
-        }
-        if (enemyCurrentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-}
