@@ -1,0 +1,934 @@
+fileFormatVersion: 2
+guid: c41b861006d543a41be6bc0a07d9b00b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vitustiKoiria_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 808
+        width: 190
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc38de458914dc240a884d467197d503
+      internalID: 1418187374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_1
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 817
+        width: 190
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15c23eebec83894c990ef4077f258fb
+      internalID: -61108561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_3
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 815
+        width: 190
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c6562198bd8a74c9a71e3f470a9348
+      internalID: 1879260320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_4
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 823
+        width: 191
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2439c0bb67d36448a2ec3f3ebb85097
+      internalID: 247710420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_5
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 799
+        width: 193
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b292be40a40ece94fbcdc21739c9120d
+      internalID: -457432171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_6
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 808
+        width: 191
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128091b166d9c3f4fa93593d434b3403
+      internalID: -1239273900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_8
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 805
+        width: 191
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fd508a3434316438037c5c91739f44
+      internalID: 9414537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_9
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 815
+        width: 190
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41758e2b3d855104ba4e372665e04555
+      internalID: 772157078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_10
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 808
+        width: 187
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf51ffca94c56be4cb852b7c285ca0c4
+      internalID: 1150338008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_11
+      rect:
+        serializedVersion: 2
+        x: 2167
+        y: 817
+        width: 191
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5516a65a77d17c14d802b011d65396e2
+      internalID: -478660758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_13
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 815
+        width: 191
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad916bcb20ac9d4eb708ee8cd659c00
+      internalID: -1435925310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_14
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 823
+        width: 189
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571a72b8426c6224392200430d458f40
+      internalID: 1171587978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_15
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 417
+        width: 190
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2fdfb0d03a74ff458145c9089bae685
+      internalID: -1217129635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_16
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 425
+        width: 190
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8bc2144b2ec364e8768d7fa1a16daa
+      internalID: 273940913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_18
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 422
+        width: 190
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47266e1c5dc35aa42b7217a078766d15
+      internalID: 1720375812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_19
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 431
+        width: 191
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749cb629aee0659409fe0bf9308d17d9
+      internalID: 882490058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_20
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 407
+        width: 187
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b3a504ec550074d860cbc8d46167f2
+      internalID: 1619871423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_21
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 417
+        width: 191
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104c66e7549249740b87ef83267eb24c
+      internalID: 1865538266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_23
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 413
+        width: 191
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f757286219ba846b35655fc60f162e
+      internalID: -1658337484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_24
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 422
+        width: 190
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae3c18b2ad5c104fa518c4cdba0cf34
+      internalID: 46873962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_25
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 417
+        width: 187
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b677d8293b4374d874fec2d12c44c9
+      internalID: -1992821875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_26
+      rect:
+        serializedVersion: 2
+        x: 2167
+        y: 425
+        width: 191
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b687d4126b5f99449857425978df8e0d
+      internalID: 999557531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_28
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 422
+        width: 191
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73c11a1e3323c147b72f3f057ed2b7d
+      internalID: 580908467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_29
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 431
+        width: 189
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eff6c56e86a99b47977365f4d2a357b
+      internalID: 1512475409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_30
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 16
+        width: 189
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fccd71bee04a323479c987b2e410e79e
+      internalID: -1970800920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_31
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 16
+        width: 190
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e898a193ef8cd4bb524ba7fcde1947
+      internalID: -2119805267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_32
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 18
+        width: 186
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6288c5256e9f5024cad5eae6af6b63b9
+      internalID: -1608836338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_33
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 15
+        width: 190
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c483eb2b7aa7c194b96b519c3c3ce63b
+      internalID: -420959977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_34
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 13
+        width: 190
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0caf24a2d3365634fafebff998b9f8cf
+      internalID: -364291081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_35
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 9
+        width: 190
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039b4f8e4ad66d240a5905aaf4193745
+      internalID: -185698469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_36
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 12
+        width: 191
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d128463aca7ed741879372b60f37809
+      internalID: 1628299804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_37
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 8
+        width: 191
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0805b4442d0daa4096131a7f7a3d7c9
+      internalID: 2125073869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_38
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 5
+        width: 191
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca07bb9eddaa5e458fdd22e177f7df6
+      internalID: 914574225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_39
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 1
+        width: 191
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e6aecff725d3a4186b31a782369217
+      internalID: -1232148680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_40
+      rect:
+        serializedVersion: 2
+        x: 2184
+        y: 2
+        width: 188
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9662646ebf3f1419a26abc2d5b3ebe
+      internalID: -556089227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_41
+      rect:
+        serializedVersion: 2
+        x: 2415
+        y: 1
+        width: 191
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8224b6f8af41971429aea37f92041c28
+      internalID: 876196817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitustiKoiria_42
+      rect:
+        serializedVersion: 2
+        x: 2637
+        y: 1
+        width: 190
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f61ee8de7885d5438af30c1ad5a2305
+      internalID: 1033479824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      vitustiKoiria_0: 1418187374
+      vitustiKoiria_1: -61108561
+      vitustiKoiria_10: 1150338008
+      vitustiKoiria_11: -478660758
+      vitustiKoiria_12: -1967195139
+      vitustiKoiria_13: -1435925310
+      vitustiKoiria_14: 1171587978
+      vitustiKoiria_15: -1217129635
+      vitustiKoiria_16: 273940913
+      vitustiKoiria_17: -1806135659
+      vitustiKoiria_18: 1720375812
+      vitustiKoiria_19: 882490058
+      vitustiKoiria_2: -474270714
+      vitustiKoiria_20: 1619871423
+      vitustiKoiria_21: 1865538266
+      vitustiKoiria_22: 1874016664
+      vitustiKoiria_23: -1658337484
+      vitustiKoiria_24: 46873962
+      vitustiKoiria_25: -1992821875
+      vitustiKoiria_26: 999557531
+      vitustiKoiria_27: 333802823
+      vitustiKoiria_28: 580908467
+      vitustiKoiria_29: 1512475409
+      vitustiKoiria_3: 1879260320
+      vitustiKoiria_30: -1970800920
+      vitustiKoiria_31: -2119805267
+      vitustiKoiria_32: -1608836338
+      vitustiKoiria_33: -420959977
+      vitustiKoiria_34: -364291081
+      vitustiKoiria_35: -185698469
+      vitustiKoiria_36: 1628299804
+      vitustiKoiria_37: 2125073869
+      vitustiKoiria_38: 914574225
+      vitustiKoiria_39: -1232148680
+      vitustiKoiria_4: 247710420
+      vitustiKoiria_40: -556089227
+      vitustiKoiria_41: 876196817
+      vitustiKoiria_42: 1033479824
+      vitustiKoiria_5: -457432171
+      vitustiKoiria_6: -1239273900
+      vitustiKoiria_7: 518150350
+      vitustiKoiria_8: 9414537
+      vitustiKoiria_9: 772157078
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
