@@ -33,30 +33,5 @@ public class helaBaari : MonoBehaviour
     {
         helaMäärä.text = playerBehaviour.GetStat(PlayerBehaviour.Stat.currentHealth) + "/" + playerBehaviour.GetStat(PlayerBehaviour.Stat.maxHealth);
     }
-    
-
-
-    /* public void SetMaxHealth(float health)
-     {
-         slider.maxValue = health;
-         slider.value = health;
-
-         fill.color = gradient.Evaluate(1f);
-     }
-
-     public void SetHealth(float health)
-     {
-         SetMaxHealth(health);
-         slider.value = health;
-         fill.color = gradient.Evaluate(slider.normalizedValue);
-         // helaMäärä.text = slider.value + "/" + playerBehaviour.maxHealth;
-         helaMäärä.text = slider.value + "/" + playerBehaviour.GetStat(PlayerBehaviour.Stat.maxHealth);
-     }
-     void UpdateHealthText() // teksti päivitetään void Startissa(), sekä joka kerta kun hela päivittyy.
-     {
-         helaMäärä.text = slider.value + "/" + playerBehaviour.GetStat(PlayerBehaviour.Stat.maxHealth);
-         Debug.Log(playerBehaviour.GetStat(PlayerBehaviour.Stat.maxHealth));
-     }
-     */
 }
 

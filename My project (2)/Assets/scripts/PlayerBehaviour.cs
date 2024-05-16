@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -7,27 +8,34 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 8f;
-    [SerializeField] private float dashSpeedFactor = 20f;
-    [SerializeField] private float dashCooldown = 4f;
-    public int maxHealth = 100;
-    public Rigidbody2D rb;
+    [Header("Statsit")]
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float dashSpeedFactor;
+    [SerializeField] private float dashCooldown;
+    [SerializeField] private float maxHealth;
+    [SerializeField] public float currentHealth;
+
+    private Rigidbody2D rb;
     private Vector2 movementDirection;
-    private Animator animator;
+
     public bool isDashing = false;
     public bool iFrame = false;
     public float iFrameTimer = 0;
-    public float currentHealth;
-    public helaBaari healthBar;
+
+
     public Dictionary<Stat, float> stats = new Dictionary<Stat, float>();
     public kuolemaRuutu kuolemaRuutu;
+    private Animator animator;
+    public helaBaari healthBar;
+
 
     public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
     {
-        maxHealth = 100,
-        movementSpeed = 8,
-        dashSpeedFactor = 10,
-        dashCooldown = 3,
+
+        maxHealth,
+        movementSpeed,
+        dashSpeedFactor,
+        dashCooldown,
         currentHealth
     }
     void Start()
@@ -35,8 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
         SetPlayerStats();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        UpdateStat(Stat.dashCooldown, 0f); //4s sob
-        currentHealth = GetStat(Stat.maxHealth);
+
     }
 
     void Update()
@@ -72,14 +79,10 @@ public class PlayerBehaviour : MonoBehaviour
             healthBar.SetHealth();
         }
 
-       
 
 
-        // JOuduin tän kommentoimaan et pystyn testaa noit juttuja mut jos saat toimimaan uudelleen mun muutoksien kanssa nii vois ottaa uudelleen käyttöön.
         //helabaarin pitäis nyt päivittyä pelkästään dictionaryn mukaan
-        // also onks joku scriptable obj
-        // sit pitäis saada ne fieldit tonne mistä voi muuttaa inspectorista niitä arvoja pelaajan statseihin ja nähä ne muutenki
-         if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             TakeDamage(10);
         }
@@ -111,18 +114,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        /*float oldHealth = GetStat(Stat.currentHealth);
-        
-        UpdateStat(Stat.currentHealth, healthAfterDamage);
-        //currentHealth = Mathf.Clamp(currentHealth, 0, GetStat(Stat.maxHealth));
-
-        if (oldHealth != healthAfterDamage)
-        {
-            healthBar.SetHealth();
-        }*/
-
-
-//////////////  tää pitää laittaa kokonaan uusiks varmaan. En osannu.
         float newHealth = GetStat(Stat.currentHealth) - damage;
         UpdateStat(Stat.currentHealth, newHealth);
         if (newHealth != currentHealth)
@@ -130,7 +121,7 @@ public class PlayerBehaviour : MonoBehaviour
             healthBar.SetHealth();
             currentHealth = newHealth;
         }
-        
+
 
         currentHealth = newHealth;
 
@@ -142,12 +133,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void SetPlayerStats() //asettaa pelaajan kaikki statsit Dictionaryyn "Stat".
     {
-
-//////////////// Statseja ei pysty säätää täl hetkellä mistään eikä getStat funktio tee mitään ku yhtäkään statsia ei oo määritelty/ei oo määrää.
-        stats.Add(Stat.maxHealth, maxHealth);
-        stats.Add(Stat.dashCooldown, dashCooldown);
-        stats.Add(Stat.dashSpeedFactor, dashSpeedFactor);
-        stats.Add(Stat.movementSpeed, movementSpeed);
+        stats.Add(Stat.maxHealth, maxHealth = 103);
+        stats.Add(Stat.dashCooldown, dashCooldown = 0); // aluksi 0, että pystyy heti dashaa
+        stats.Add(Stat.dashSpeedFactor, dashSpeedFactor = 20);
+        stats.Add(Stat.movementSpeed, movementSpeed = 8);
         stats.Add(Stat.currentHealth, maxHealth);
 
         // siirsin clampin tänne. pitäis pitää maxhealth ja 0 helarajat.
