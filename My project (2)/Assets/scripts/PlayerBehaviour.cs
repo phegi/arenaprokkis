@@ -49,7 +49,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        animator.SetFloat("Speed", Mathf.Abs(movementDirection.magnitude * GetStat(Stat.movementSpeed)));
+        animator.SetFloat("Speed", Mathf.Abs(movementDirection.magnitude * movementSpeed));
 
         bool flipped = movementDirection.x < 0;
         transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
@@ -94,7 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (isDashing)
         {
-            rb.velocity = rb.velocity * GetStat(Stat.dashSpeedFactor) + movementDirection * GetStat(Stat.movementSpeed) * GetStat(Stat.dashSpeedFactor);
+            rb.velocity = rb.velocity * dashSpeedFactor + movementDirection * GetStat(Stat.movementSpeed) * dashSpeedFactor;
             dashCooldown = 4f;
             isDashing = false;
         }

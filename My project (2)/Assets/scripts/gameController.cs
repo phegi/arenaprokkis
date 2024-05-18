@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,19 @@ public class gameController : MonoBehaviour
     public kuolemaRuutu kuolemaRuutu;
     public PlayerBehaviour playerBehaviour;
     public pauseMenu pauseMenu;
+    public GameObject consum1;
+    public GameObject consum2;
 
+
+    void Start()
+    {
+        Instantiate(consum1);
+        Instantiate(consum2);
+        Instantiate(consum1);
+        Instantiate(consum2);
+        Instantiate(consum1);
+        Instantiate(consum2);
+    }
     void Update()
     {
         if (playerBehaviour.GetStat(PlayerBehaviour.Stat.currentHealth) <= 0)
