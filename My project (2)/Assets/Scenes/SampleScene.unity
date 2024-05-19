@@ -835,8 +835,8 @@ MonoBehaviour:
   kuolemaRuutu: {fileID: 918069902}
   playerBehaviour: {fileID: 2140500126}
   pauseMenu: {fileID: 87286007}
-  consum1: {fileID: 0}
-  consum2: {fileID: 0}
+  consum1: {fileID: 196217534455274720, guid: 1a0aedc247747274e98d1d5479f05949, type: 3}
+  consum2: {fileID: 44723723248551500, guid: af2f3e3b560795840a0da58e955f8074, type: 3}
 --- !u!1 &607905978
 GameObject:
   m_ObjectHideFlags: 0

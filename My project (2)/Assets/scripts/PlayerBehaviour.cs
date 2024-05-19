@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player stats")]
 
 public class PlayerBehaviour : MonoBehaviour
 {
