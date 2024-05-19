@@ -47,4 +47,18 @@ public class Inventory : ScriptableObject
     {
         // Implementation for updating item values, if needed
     }
+
+    public (int quantity, string itemName) GetItemDetails(string itemName)
+    {
+        InventoryItem item = items.Find(i => i.item == itemName);
+        if (item != null)
+        {
+            return (item.quantity, item.item);
+        }
+        else
+        {
+            Debug.LogWarning($"Item {itemName} not found in inventory.");
+            return (0, null);
+        }
+    }
 }
