@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: New Inventory
   m_EditorClassIdentifier: 
   items:
-  - item: {fileID: 0}
-    quantity: 1
-  - item: {fileID: 0}
-    quantity: 1
-  - item: {fileID: 0}
-    quantity: 1
+  - item: rakki
+    quantity: 2
+  - item: piski
+    quantity: 5
+  - item: 
+    quantity: 3

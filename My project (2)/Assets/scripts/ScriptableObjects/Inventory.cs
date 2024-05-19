@@ -20,19 +20,24 @@ public class Inventory : ScriptableObject
         get => items;
     }
 
+
     public void AddItem(GameObject itemToAdd)
     {
-        InventoryItem existingItem = items.Find(i => i.item == itemToAdd.name);
-        
+        // Get the item name from the ItemTypeOrganizer component of the itemToAdd GameObject
+        string _itemName = itemToAdd.GetComponent<ItemTypeOrganizer>().itemName;
+
+        // Find the existing InventoryItem with the same item name
+        InventoryItem existingItem = items.Find(i => i.item == _itemName);
+
         if (existingItem != null)
         {
+            // If the item already exists, increment its quantity
             existingItem.quantity++;
         }
         else
         {
-            string itemName = itemToAdd.name;
-
-            InventoryItem newItem = new InventoryItem { item = itemToAdd.name, quantity = 1 };
+            // If the item does not exist, create a new InventoryItem and add it to the inventory
+            InventoryItem newItem = new InventoryItem { item = _itemName, quantity = 1 };
             items.Add(newItem);
             Debug.Log($"Added{newItem}");
         }
