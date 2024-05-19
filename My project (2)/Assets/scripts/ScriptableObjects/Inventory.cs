@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory")]
@@ -22,8 +23,8 @@ public class Inventory : ScriptableObject
     public void AddItem(GameObject itemToAdd)
     {
         InventoryItem existingItem = items.Find(i => i.item == itemToAdd);
-
-        if (existingItem != null)
+        
+        if (itemToAdd.Equals(existingItem))
         {
             existingItem.quantity++;
         }
@@ -35,8 +36,6 @@ public class Inventory : ScriptableObject
             items.Add(newItem);
             Debug.Log($"Added{newItem}");
         }
-        
-        Debug.Log($"Inventory: {GetItems}");
     }
 
     public void UpdateItemValue()

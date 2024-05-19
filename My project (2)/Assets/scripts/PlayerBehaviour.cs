@@ -122,10 +122,12 @@ public class PlayerBehaviour : MonoBehaviour
             currentHealth = newHealth;
         }
 
+        // siirsin clampin tänne. pitäis pitää maxhealth ja 0 helarajat.
+        Mathf.Clamp(currentHealth, 0, maxHealth);
 
         currentHealth = newHealth;
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
         }
@@ -139,8 +141,7 @@ public class PlayerBehaviour : MonoBehaviour
         stats.Add(Stat.movementSpeed, movementSpeed = 8);
         stats.Add(Stat.currentHealth, maxHealth);
 
-        // siirsin clampin tänne. pitäis pitää maxhealth ja 0 helarajat.
-        Mathf.Clamp(currentHealth, 0, maxHealth);
+
     }
 
     public float GetStat(Stat stat) //Hakee pelaajan yksittäisen statsin Dictionarysta.
