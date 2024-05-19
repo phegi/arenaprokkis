@@ -30,6 +30,7 @@ public class playerInventory : MonoBehaviour
     private void GrabItemByItemType(GameObject item)
     {
         inventory.AddItem(item);
+        getItemsToInventory();
         Debug.Log("this item was added: " + item.name);
         Debug.Log($"Added item of type: {item}");
     }
@@ -46,6 +47,7 @@ public class playerInventory : MonoBehaviour
     public void getItemsToInventory()
     {
         foreach (Button prefab in prefabs)
+        //if (grabbeditem.name = prefab.name)
         {
             Instantiate(prefab, parentObject);
             Debug.Log("prefab instantiated");
