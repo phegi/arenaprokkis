@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
-  _pauseMenu: {fileID: 0}
+  _pauseMenu: {fileID: 87286005}
 --- !u!114 &87286008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,6 +835,8 @@ MonoBehaviour:
   kuolemaRuutu: {fileID: 918069902}
   playerBehaviour: {fileID: 2140500126}
   pauseMenu: {fileID: 87286007}
+  consum1: {fileID: 0}
+  consum2: {fileID: 0}
 --- !u!1 &607905978
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,6 +4051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: f98c352470113a14a9edfdf15fba28bb, type: 2}
+  itemTypeOrg: {fileID: 0}
   itemTypes: 
 --- !u!1 &144058126731530383
 GameObject:
@@ -4086,8 +4089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -509.7548, y: -1.4078}
-  m_SizeDelta: {x: 553.4905, y: 746.7883}
+  m_AnchoredPosition: {x: -350, y: 0.000015259}
+  m_SizeDelta: {x: 278.1257, y: 375.2568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &860135102770440451
 GameObject:
@@ -4478,6 +4481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiButton: {fileID: 3584312136659535623, guid: 6dbf67ef31807ec4d86d67c6f024eab6, type: 3}
   itemType: 8
+  itemName: 
 --- !u!1 &6938505286922017334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,6 +4593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiButton: {fileID: 7782676627144447402, guid: bde5f00c67d21aa4bb662462fc2dd2f9, type: 3}
   itemType: 0
+  itemName: 
 --- !u!114 &8059763247605705316
 MonoBehaviour:
   m_ObjectHideFlags: 0

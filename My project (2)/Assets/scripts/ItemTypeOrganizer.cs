@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
 public enum ItemType
 {
     currency,
@@ -20,4 +19,5 @@ public class ItemTypeOrganizer : MonoBehaviour
 {
     public GameObject uiButton;
     public ItemType itemType;
+    public string itemName;
 }
