@@ -8,8 +8,9 @@ public class enemyStats : MonoBehaviour
     public int enemyMaxHealth = 350;
     public int enemyCurrentHealth;
     public vihuHelaBaari healthBar;
-    public expCounter expcounter;
+    public ExpCounter expcounter;
     public PlayerBehaviour playerbehaviour;
+    public EnemyDeathEvent enemydeathevent;
 
     void Start()
     {
@@ -36,9 +37,7 @@ public class enemyStats : MonoBehaviour
         }
         if (enemyCurrentHealth <= 0)
         {
-            Destroy(gameObject);
-            expcounter.UpdateExp(10);
-            playerbehaviour.LevelUp();
+            enemydeathevent.EnemyDeath();
         }
     }
 }

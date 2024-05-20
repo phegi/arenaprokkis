@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 743506287}
   - component: {fileID: 743506286}
   - component: {fileID: 743506293}
+  - component: {fileID: 743506294}
   m_Layer: 8
   m_Name: valkoMonsu
   m_TagString: Enemy
@@ -1092,8 +1093,24 @@ MonoBehaviour:
   enemyMaxHealth: 350
   enemyCurrentHealth: 350
   healthBar: {fileID: 1024391830}
-  expcounter: {fileID: 0}
-  playerbehaviour: {fileID: 0}
+  expcounter: {fileID: 11400000, guid: 32f7d6367bdabbe4b9be8157b3020f59, type: 2}
+  playerbehaviour: {fileID: 2140500126}
+  enemydeathevent: {fileID: 743506294}
+--- !u!114 &743506294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743506285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe37e334dce58c44a75c95902d61457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vihu: {fileID: 743506285}
+  expcounter: {fileID: 11400000, guid: 32f7d6367bdabbe4b9be8157b3020f59, type: 2}
+  playerbehaviour: {fileID: 2140500126}
 --- !u!1 &848877254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,7 +3691,7 @@ MonoBehaviour:
   iFrameTimer: 0
   kuolemaRuutu: {fileID: 918069902}
   healthBar: {fileID: 1829913030}
-  expcounter: {fileID: 0}
+  expcounter: {fileID: 11400000, guid: 32f7d6367bdabbe4b9be8157b3020f59, type: 2}
 --- !u!61 &2140500127
 BoxCollider2D:
   m_ObjectHideFlags: 0

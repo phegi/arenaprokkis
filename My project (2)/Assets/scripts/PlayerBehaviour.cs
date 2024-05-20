@@ -27,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     public kuolemaRuutu kuolemaRuutu;
     private Animator animator;
     public helaBaari healthBar;
-    public expCounter expcounter;
+    public ExpCounter expcounter;
 
 
     public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
@@ -169,14 +169,14 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    public void LevelUp()
+    public void LevelUp() // päivittäilee pelaajan levelin.
     {
         if (expcounter.GetExp == expcounter.GetExpToNextLevel)
         {
             expcounter.UpdateLevel();
             expcounter.ResetExp();
             expcounter.UpdateExpToNextLevel();
-            Debug.Log(expcounter.GetLevel);
+            Debug.Log("current level: " + expcounter.GetLevel);
         }
     }
 }
