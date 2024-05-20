@@ -27,30 +27,39 @@ public class playerInventory : MonoBehaviour
         Destroy(collision.gameObject);
     }
 
-    private void GrabItemByItemType(GameObject item)
+    private void GrabItemByItemType(GameObject _item)
     {
-        inventory.AddItem(item);
-        getItemsToInventory();
-        Debug.Log("this item was added: " + item.name);
-        Debug.Log($"Added item of type: {item}");
+        inventory.AddItem(_item);
+        getItemsToInventory(_item);
+        Debug.Log(_item.name + " picked up");
     }
 
     void getItemDetails(string itemName, int quantity)
     {
-        var itemDetails = inventory.GetItemDetails("itemNameToSearch");
+        var itemDetails = inventory.GetItemDetails(itemName);
         if (itemDetails.itemName != null)
         {
             Debug.Log($"Item: {itemDetails.itemName}, Quantity: {itemDetails.quantity}");
         }
     }
 
-    public void getItemsToInventory()
+    public void getItemsToInventory(GameObject _item)
     {
         foreach (Button prefab in prefabs)
-        //if (grabbeditem.name = prefab.name)
         {
-            Instantiate(prefab, parentObject);
-            Debug.Log("prefab instantiated");
+            string prefabName = prefab.name;
+            Debug.Log($"Checking if prefab {prefab.name} exists in itemTypes list...");
+            if (prefabName.Contains(_item.name))
+            {
+                Debug.Log($"Prefab {prefab.name} exists in itemTypes list, instantiating...");
+                Instantiate(prefab, parentObject);
+                Debug.Log("Prefab instantiated.");
+            }
+            else
+            {
+                Debug.LogError($"Prefab {prefab.name} does not exist in itemTypes list.");
+            }
         }
     }
+
 }

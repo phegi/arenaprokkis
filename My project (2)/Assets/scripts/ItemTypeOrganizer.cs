@@ -5,15 +5,17 @@ using UnityEngine;
 
 public enum ItemType
 {
-    currency,
-    weapon,
-    consumable,
-    ammo,
-    food,
-    questItem,
-    key,
-    powerUp,
-    collectible
+    koiraCurrency_btn,
+    piskiCollectible_btn
+    //  currency,
+    //  weapon,
+    //  consumable,
+    //  ammo,
+    //  food,
+    //  questItem,
+    //  key,
+    //  powerUp,
+    //  collectible
 }
 public class ItemTypeOrganizer : MonoBehaviour
 {

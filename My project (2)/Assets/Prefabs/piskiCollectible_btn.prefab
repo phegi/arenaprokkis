@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4452884209582372474}
   - component: {fileID: 4188302877246391972}
   m_Layer: 5
-  m_Name: piskiCLTBL_btn
+  m_Name: piskiCollectible_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

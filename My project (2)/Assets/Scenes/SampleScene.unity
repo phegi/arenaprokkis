@@ -2327,7 +2327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1096097050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: f98c352470113a14a9edfdf15fba28bb, type: 2}
   itemTypeOrg: {fileID: 0}
-  itemTypes: 
+  itemTypes: 0000000001000000
   parentObject: {fileID: 1537891648}
   prefabs:
   - {fileID: 4219108507013368146, guid: bde5f00c67d21aa4bb662462fc2dd2f9, type: 3}
@@ -4619,7 +4619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiButton: {fileID: 3584312136659535623, guid: 6dbf67ef31807ec4d86d67c6f024eab6, type: 3}
   itemType: 8
-  itemName: piski
+  itemName: piskiCollectible
 --- !u!1 &6938505286922017334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4731,7 +4731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiButton: {fileID: 7782676627144447402, guid: bde5f00c67d21aa4bb662462fc2dd2f9, type: 3}
   itemType: 0
-  itemName: rakki
+  itemName: koiraCurrency
 --- !u!114 &8059763247605705316
 MonoBehaviour:
   m_ObjectHideFlags: 0
