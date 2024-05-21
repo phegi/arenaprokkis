@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory")]
@@ -14,6 +15,13 @@ public class Inventory : ScriptableObject
     }
 
     [SerializeField] List<InventoryItem> items = new List<InventoryItem>();
+    
+
+    //Get amount of items in list
+    public int ItemCount
+    {
+        get => items.Count;
+    }
 
     public List<InventoryItem> GetItems
     {
