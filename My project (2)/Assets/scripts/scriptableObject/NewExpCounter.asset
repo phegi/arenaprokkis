@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NewExpCounter
   m_EditorClassIdentifier: 
   exp: 0
-  level: 1
-  expToNextLevel: 10
+  level: 2
+  expToNextLevel: 20

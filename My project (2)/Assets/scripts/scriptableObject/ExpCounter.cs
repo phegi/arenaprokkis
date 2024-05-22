@@ -13,9 +13,9 @@ public class ExpCounter : ScriptableObject
     public float GetExp { get => exp; }
     public int GetLevel { get => level; }
     public float GetExpToNextLevel { get => expToNextLevel; }
-    public void UpdateExp(int gottedExp) { exp += gottedExp; }
+    public void UpdateExp(float gottedExp) { exp += gottedExp; }
     public void UpdateLevel() { level++; }
-    public void UpdateExpToNextLevel() { expToNextLevel *= 1.2f; }
+    public void UpdateExpToNextLevel() { expToNextLevel *= 2f; }
     public void ResetExp() { exp = 0; }
-
+    public void ResetExpStart() { exp = 0; expToNextLevel = 10; level = 1; } //käytetään vain kun peli alkaa
 }

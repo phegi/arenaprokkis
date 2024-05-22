@@ -28,6 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator animator;
     public helaBaari healthBar;
     public ExpCounter expcounter;
+    public expBaari expBar;
 
 
     public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
@@ -171,11 +172,16 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void LevelUp() // päivittäilee pelaajan levelin.
     {
-        if (expcounter.GetExp == expcounter.GetExpToNextLevel)
+        if (expcounter.GetExp >= expcounter.GetExpToNextLevel)
         {
-            expcounter.UpdateLevel();
+            float expOverFlow = expcounter.GetExp - expcounter.GetExpToNextLevel; // ylijäämä exp levelupista
+            // päivittää levelin ja resettaa setit 
             expcounter.ResetExp();
+            expcounter.UpdateExp(expOverFlow);
             expcounter.UpdateExpToNextLevel();
+            expcounter.UpdateLevel();
+            // settaa uuden expbarin levelin myötä
+            expBar.SetExpBar();
             Debug.Log("current level: " + expcounter.GetLevel);
         }
     }

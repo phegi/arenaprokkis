@@ -7,6 +7,7 @@ public class EnemyDeathEvent : MonoBehaviour
     public GameObject vihu;
     public ExpCounter expcounter;
     public PlayerBehaviour playerbehaviour;
+    public expBaari expBar;
     void Start()
     {
         // JOS VIHU EI OLE TUNNETTU, EDELLINEN VIHU EI OLE OLEMASSA (:D)
@@ -18,8 +19,9 @@ public class EnemyDeathEvent : MonoBehaviour
 
     public void EnemyDeath() // tapahtuu kun vihu kuolee
     {
-        expcounter.UpdateExp(10);
-        playerbehaviour.LevelUp();
+        expcounter.UpdateExp(15); // lisaä pelaajan expinta
+        playerbehaviour.LevelUp(); // chekkaa jos exp riittää leveliin
+        expBar.UpdateExpBar();  // paivittää expbarin
         DestroyEnemy();
     }
 
