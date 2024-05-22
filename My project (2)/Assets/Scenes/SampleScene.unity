@@ -1240,8 +1240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0c557b6249784aa0f95d650c96013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 350
-  enemyCurrentHealth: 350
+  enemyMaxHealth: 30
+  enemyCurrentHealth: 30
   healthBar: {fileID: 1024391830}
 --- !u!4 &792664181 stripped
 Transform:
@@ -3984,6 +3984,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 4219108507013368146, guid: bde5f00c67d21aa4bb662462fc2dd2f9, type: 3}
   - {fileID: 4188302877246391972, guid: 6dbf67ef31807ec4d86d67c6f024eab6, type: 3}
+  ItemStackCount: {fileID: 8156848221102915767, guid: dac738f1268a06e4590893af82db26a0, type: 3}
 --- !u!1 &144058126731530383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,7 +4111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &2164383852825820136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4290,7 +4291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -479.97192, y: -24.424805}
+  m_AnchoredPosition: {x: -293, y: -0.000030517578}
   m_SizeDelta: {x: -1442.3204, y: -438.9004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3769598486034554686
@@ -4624,7 +4625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiButton: {fileID: 3584312136659535623, guid: 6dbf67ef31807ec4d86d67c6f024eab6, type: 3}
-  itemType: 8
+  itemType: 1
   itemName: piskiCollectible
 --- !u!224 &7010082061420224394
 RectTransform:

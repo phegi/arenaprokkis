@@ -22,4 +22,6 @@ public class ItemTypeOrganizer : MonoBehaviour
     public GameObject uiButton;
     public ItemType itemType;
     public string itemName;
+    //public string itemDescription;
+    //public int itemStackSize;
 }

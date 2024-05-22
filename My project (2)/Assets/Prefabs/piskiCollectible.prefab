@@ -144,5 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiButton: {fileID: 3584312136659535623, guid: 6dbf67ef31807ec4d86d67c6f024eab6, type: 3}
-  itemType: 8
+  itemType: 1
   itemName: piskiCollectible
+  itemDescription: nice
+  itemStackSize: 0

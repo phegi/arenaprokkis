@@ -14,7 +14,7 @@ public class playerInventory : MonoBehaviour
     public List<ItemType> itemTypes = new List<ItemType>();
     public Transform parentObject;
     public Button[] prefabs;
-    public TextMeshProUGUI itemMäärä;
+    public GameObject ItemStackCount;
 
     void Start()
     {
@@ -56,45 +56,55 @@ public class playerInventory : MonoBehaviour
         inventory.AddItem(_item);
         getItemsToInventory(_item);
         Debug.Log(_item.name + " picked up");
+        //jotenki update itemstackcount täs
     }
 
-    void getItemDetails(string itemName, int quantity)
-     {
-         var itemDetails = inventory.GetItemDetails(itemName);
-         if (itemDetails.itemName != null)
-         {
-             Debug.Log($"Item: {itemDetails.itemName}, Quantity: {itemDetails.quantity}");
-         }
-     }    
-     
+    public void getItemDetails(string itemName, int quantity)
+    {
+        var itemDetails = inventory.GetItemDetails(itemName);
+        if (itemDetails.itemName != null)
+        {
+            Debug.Log($"Item: {itemDetails.itemName}, Quantity: {itemDetails.quantity}");
+        }
+    }
+
 
     public void getItemsToInventory(GameObject _item)
     {
+        var itemDetails = inventory.GetItemDetails(_item.name);
         foreach (Button prefab in prefabs)
         {
             string prefabName = prefab.name;
-            Debug.Log($"Checking if prefab {prefab.name} exists in itemTypes list...");
             if (prefabName.Contains(_item.name) && inventory.ItemCount < 16)
             {
-                Debug.Log($"Prefab {prefab.name} exists in itemTypes list, instantiating...");
-                Instantiate(prefab, parentObject);
-                Debug.Log("Prefab instantiated.");
-                countItems();
-            }
-            else
-            {
-                Debug.LogError($"Prefab {prefab.name} does not exist in itemTypes list.");
+                // Instantiate the button prefab
+                Button instantiatedButton = Instantiate(prefab, parentObject);
+
+                // Instantiate the itemStackCount prefab
+                GameObject itemStackCount = Instantiate(ItemStackCount);
+
+                // Set the instantiated button as the parent of the itemStackCount object
+                itemStackCount.transform.SetParent(instantiatedButton.transform);
+
+                // Position the itemStackCount object on top of the instantiatedButton
+                Vector2 itemStackCountPosition = new Vector2(
+                    instantiatedButton.transform.position.x + 18,
+                    instantiatedButton.transform.position.y + 18
+                );
+                itemStackCount.transform.position = itemStackCountPosition;
+
+                countItemStack(itemStackCount);
             }
         }
     }
-    public void countItems()
+
+    public void countItemStack(GameObject itemStackCount)
     {
         foreach (var item in inventory.GetItems)
         {
-            
             getItemDetails(item.item, item.quantity);
             int itemQuantity = item.quantity;
-            itemMäärä.text = itemQuantity.ToString();
+            itemStackCount.GetComponent<TextMeshProUGUI>().text = itemQuantity.ToString() + "x";
         }
     }
 }
