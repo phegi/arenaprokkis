@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2591991383358822654}
   - component: {fileID: 1966054301017146105}
   - component: {fileID: 4219108507013368146}
+  - component: {fileID: 3198381563674120849}
   m_Layer: 5
   m_Name: koiraCurrency_btn
   m_TagString: Untagged
@@ -120,3 +121,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3198381563674120849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782676627144447402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789048370e44806499815be71a05e0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: 
+  itemDescription: 
+  itemStackCount: 0
+  itemCoords: 0
