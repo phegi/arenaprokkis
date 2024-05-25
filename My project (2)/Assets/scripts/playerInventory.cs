@@ -104,7 +104,13 @@ public class playerInventory : MonoBehaviour
         {
             getItemDetails(item.item, item.quantity);
             int itemQuantity = item.quantity;
-            itemStackCount.GetComponent<TextMeshProUGUI>().text = itemQuantity.ToString() + "x";
+            string itemName = item.item;
+
+            if (itemStackCount.transform.parent.gameObject.name.Contains(itemName))//spaghettikki
+            {
+                itemStackCount.GetComponent<TextMeshProUGUI>().text = itemQuantity.ToString() + "x";
+            }
         }
     }
+
 }
