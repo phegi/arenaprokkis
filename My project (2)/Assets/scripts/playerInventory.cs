@@ -16,6 +16,7 @@ public class playerInventory : MonoBehaviour
     public Button[] prefabs;
     public GameObject ItemStackCount;
 
+
     void Start()
     {
         //Check inventory.cs for items and instantiate them in inventory
@@ -49,19 +50,20 @@ public class playerInventory : MonoBehaviour
             GrabItemByItemType(collision.gameObject);
         }
         Destroy(collision.gameObject);
+        Debug.Log("block1");
     }
 
-    private void GrabItemByItemType(GameObject _item)
+    private void GrabItemByItemType(GameObject item)
     {
-        inventory.AddItem(_item);
-        getItemsToInventory(_item);
-        Debug.Log(_item.name + " picked up");
+        inventory.AddItem(item);
+        getItemsToInventory();
+        Debug.Log(item.name + " picked up");
         //jotenki update itemstackcount täs
     }
 
-    public void getItemDetails(string itemName, int quantity)
+    public void getItemDetails(string _itemName, int quantity)
     {
-        var itemDetails = inventory.GetItemDetails(itemName);
+        var itemDetails = inventory.GetItemDetails(_itemName);
         if (itemDetails.itemName != null)
         {
             Debug.Log($"Item: {itemDetails.itemName}, Quantity: {itemDetails.quantity}");
@@ -69,48 +71,65 @@ public class playerInventory : MonoBehaviour
     }
 
 
-    public void getItemsToInventory(GameObject _item)
+    public void getItemsToInventory()
     {
-        var itemDetails = inventory.GetItemDetails(_item.name);
-        foreach (Button prefab in prefabs)
+        foreach (var item in inventory.GetItems)
         {
-            string prefabName = prefab.name;
-            if (prefabName.Contains(_item.name) && inventory.ItemCount < 16)
+            getItemDetails(item.item, item.quantity);
+            string itemName = itemTypeOrg.itemName;
+
+            foreach (Button prefab in prefabs)
             {
-                // Instantiate the button prefab
-                Button instantiatedButton = Instantiate(prefab, parentObject);
+                string prefabName = prefab.name;
+                if (prefabName.Contains(itemName) && prefabName != null)
+                {
+                    // Instantiate the button prefab
+                    Button instantiatedButton = Instantiate(prefab, parentObject);
 
-                // Instantiate the itemStackCount prefab
-                GameObject itemStackCount = Instantiate(ItemStackCount);
+                    // Instantiate the itemStackCount prefab
+                    GameObject itemStackCount = Instantiate(ItemStackCount);
 
-                // Set the instantiated button as the parent of the itemStackCount object
-                itemStackCount.transform.SetParent(instantiatedButton.transform);
+                    // Set the instantiated button as the parent of the itemStackCount object
+                    itemStackCount.transform.SetParent(instantiatedButton.transform);
 
-                // Position the itemStackCount object on top of the instantiatedButton
-                Vector2 itemStackCountPosition = new Vector2(
-                    instantiatedButton.transform.position.x + 18,
-                    instantiatedButton.transform.position.y + 18
-                );
-                itemStackCount.transform.position = itemStackCountPosition;
+                    // Position the itemStackCount object on top of the instantiatedButton
+                    Vector2 itemStackCountPosition = new Vector2
+                    (
+                        instantiatedButton.transform.position.x + 18,
+                        instantiatedButton.transform.position.y + 18
+                    );
 
-                countItemStack(itemStackCount);
+                    itemStackCount.transform.position = itemStackCountPosition;
+
+                    countItemStack(itemStackCount, itemName);
+                }
             }
         }
     }
 
-    public void countItemStack(GameObject itemStackCount)
+    public void countItemStack(GameObject itemStackCount, string itemName)
     {
         foreach (var item in inventory.GetItems)
         {
             getItemDetails(item.item, item.quantity);
             int itemQuantity = item.quantity;
-            string itemName = item.item;
+            itemName = itemTypeOrg.itemName;
 
-            if (itemStackCount.transform.parent.gameObject.name.Contains(itemName))//spaghettikki
+            // Get the name of the itemStackCount object's parent
+            // Tarvitaan parentin nimi, että itemStackCount value menee oikeeseen buttoniin
+            string spaghetti = itemStackCount.transform.parent.gameObject.name;
+            string parentName = spaghetti.Split('(')[0];
+
+            //string lisäEhto = "(Clone)";
+            Debug.Log(itemName);
+            Debug.Log(spaghetti);
+
+            if (parentName.Contains(itemName) && parentName != null)//spaghettikki
             {
                 itemStackCount.GetComponent<TextMeshProUGUI>().text = itemQuantity.ToString() + "x";
+                break;
             }
         }
     }
-
 }
+
