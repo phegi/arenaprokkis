@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - item: koiraCurrency
-    quantity: 123
+    quantity: 22
   - item: piskiCollectible
-    quantity: 23
-  - item: paskaHousu
-    quantity: 1337
+    quantity: 20
