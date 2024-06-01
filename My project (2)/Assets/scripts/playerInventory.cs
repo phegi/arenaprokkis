@@ -54,10 +54,10 @@ public class playerInventory : MonoBehaviour
 
     private void GrabItemByItemType(GameObject _item)
     {
-        inventory.AddItem(_item);
-        getItemsToInventory(_item);
-        Debug.Log(_item.name + " picked up");
-        //jotenki update itemstackcount täs
+            inventory.AddItem(_item);
+            Debug.Log(_item.name + " picked up");
+            countItemStack(_item);
+            getItemsToInventory(_item);
     }
 
     public void getItemDetails(string itemName, int quantity)
@@ -72,12 +72,22 @@ public class playerInventory : MonoBehaviour
 
     public void getItemsToInventory(GameObject _item)
     {
+        Debug.Log("getItemsToInventory called for item: " + _item.name);
+
         var itemDetails = inventory.GetItemDetails(_item.name);
         foreach (Button prefab in prefabs)
         {
             string prefabName = prefab.name;
-            if (prefabName.Contains(_item.name))
+            string existingBtn = transform.Find(prefabName)?.ToString();
+
+            if (existingBtn != null)
             {
+                Debug.Log("Existing button found for item: " + _item.name);
+                countItemStack(_item);
+            }
+            else if (prefabName.Contains(_item.name))
+            {
+                Debug.Log("Instantiating button and itemStackCount for item: " + _item.name);
                 // Instantiate the button prefab
                 Button instantiatedButton = PrefabUtility.InstantiatePrefab(prefab, parentObject) as Button;
 
@@ -108,8 +118,8 @@ public class playerInventory : MonoBehaviour
             string itemName = item.item;
             string spaghetti = itemStackCount.transform.parent.gameObject.name;
             string parentName = spaghetti.Split('(')[0];
-            Debug.Log("parentName: " + parentName + "------");
-            Debug.Log("itemName: " + itemName + "------");
+        //    Debug.Log("parentName: " + parentName + "------");
+        //    Debug.Log("itemName: " + itemName + "------");
 
             if (parentName.Contains(itemName))//spaghettikki
             {

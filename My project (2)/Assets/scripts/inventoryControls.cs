@@ -14,7 +14,7 @@ public class inventoryControls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && !inventoryOpen)
         {
-            Debug.Log("Yeah...");
+            //Debug.Log("Yeah...");
             inventoryUI.SetActive(true);
             inventoryOpen = true;
             
