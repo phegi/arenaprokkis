@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class playerInventory : MonoBehaviour
 {
@@ -72,15 +73,45 @@ public class playerInventory : MonoBehaviour
     public void getItemsToInventory(GameObject _item)
     {
         var itemDetails = inventory.GetItemDetails(_item.name);
-        foreach (Button prefab in prefabs)
-        {
-            string prefabName = prefab.name;
-            if (prefabName.Contains(_item.name) && inventory.ItemCount < 16)
-            {
-                // Instantiate the button prefab
-                Button instantiatedButton = Instantiate(prefab, parentObject);
+        Button[] allButtons = parentObject.GetComponentsInChildren<Button>(true); // Include inactive buttons in the search.
+        Button existingButton = allButtons.FirstOrDefault(button => button.name == _item.name);
 
-                // Instantiate the itemStackCount prefab
+        if (existingButton != null)
+        {
+            Transform existingItemStackCountTransform = existingButton.transform.Find("ItemStackCount(Clone)");
+
+            if (existingItemStackCountTransform != null)
+            {
+                TextMeshProUGUI itemStackCountText = existingItemStackCountTransform.GetComponent<TextMeshProUGUI>();
+
+                if (itemStackCountText != null)
+                {
+                    // Update the TextMeshProUGUI with the new quantity.
+                    // You need to implement the logic to determine the correct quantity.
+                    // For example, if you have a method in your inventory that returns the current count of an item:
+                    int quantity = itemDetails.quantity;
+                    itemStackCountText.text = quantity.ToString() + "x";
+                }
+                else
+                {
+                    Debug.LogError("The ItemStackCount GameObject is missing a TextMeshProUGUI component.");
+                }
+            }
+            else
+            {
+                Debug.LogError("ItemStackCount transform not found as a child of the existing button. Check the prefab to ensure it is correctly named and present.");
+            }
+        }
+        else if (inventory.ItemCount < 16)
+        {
+            // No existing button found, create a new one if there's room in the inventory.
+            Button prefab = prefabs.FirstOrDefault(p => p.name.Contains(_item.name));
+            if (prefab != null)
+            {
+                Button instantiatedButton = Instantiate(prefab, parentObject.transform);
+                instantiatedButton.name = _item.name; // Ensure the instantiated button has the correct name.
+
+                // Instantiate the itemStackCount prefab and set up...
                 GameObject itemStackCount = Instantiate(ItemStackCount);
 
                 // Set the instantiated button as the parent of the itemStackCount object
@@ -95,6 +126,14 @@ public class playerInventory : MonoBehaviour
 
                 countItemStack(itemStackCount);
             }
+            else
+            {
+                Debug.LogError("Button prefab not found for item: " + _item.name);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Inventory is full, cannot add more items.");
         }
     }
 

@@ -17,12 +17,12 @@ public class gameController : MonoBehaviour
 
     void Start()
     {
-        Instantiate(consum1);
-        Instantiate(consum2);
-        Instantiate(consum1);
-        Instantiate(consum2);
-        Instantiate(consum1);
-        Instantiate(consum2);
+        PrefabUtility.InstantiatePrefab(consum1);
+        PrefabUtility.InstantiatePrefab(consum2);
+        PrefabUtility.InstantiatePrefab(consum1);
+        PrefabUtility.InstantiatePrefab(consum2);
+        PrefabUtility.InstantiatePrefab(consum1);
+        PrefabUtility.InstantiatePrefab(consum2);
     }
     void Update()
     {

@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65877fc69f091824e90a2b656313bab9, type: 3}
   m_Name: New Inventory
   m_EditorClassIdentifier: 
-  items:
-  - item: koiraCurrency
-    quantity: 123
-  - item: piskiCollectible
-    quantity: 23
-  - item: paskaHousu
-    quantity: 1337
+  items: []
