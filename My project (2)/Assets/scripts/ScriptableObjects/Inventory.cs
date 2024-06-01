@@ -58,7 +58,7 @@ public class Inventory : ScriptableObject
 
     public (int quantity, string itemName) GetItemDetails(string itemName)
     {
-        InventoryItem item = items.Find(i => i.item == itemName);
+        InventoryItem item = items.Find(i => i.item == itemName.Split('(')[0]);
         if (item != null)
         {
             return (item.quantity, item.item);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
@@ -75,13 +76,13 @@ public class playerInventory : MonoBehaviour
         foreach (Button prefab in prefabs)
         {
             string prefabName = prefab.name;
-            if (prefabName.Contains(_item.name) && inventory.ItemCount < 16)
+            if (prefabName.Contains(_item.name))
             {
                 // Instantiate the button prefab
-                Button instantiatedButton = Instantiate(prefab, parentObject);
+                Button instantiatedButton = PrefabUtility.InstantiatePrefab(prefab, parentObject) as Button;
 
                 // Instantiate the itemStackCount prefab
-                GameObject itemStackCount = Instantiate(ItemStackCount);
+                GameObject itemStackCount = PrefabUtility.InstantiatePrefab(ItemStackCount) as GameObject;
 
                 // Set the instantiated button as the parent of the itemStackCount object
                 itemStackCount.transform.SetParent(instantiatedButton.transform);
@@ -105,10 +106,15 @@ public class playerInventory : MonoBehaviour
             getItemDetails(item.item, item.quantity);
             int itemQuantity = item.quantity;
             string itemName = item.item;
+            string spaghetti = itemStackCount.transform.parent.gameObject.name;
+            string parentName = spaghetti.Split('(')[0];
+            Debug.Log("parentName: " + parentName + "------");
+            Debug.Log("itemName: " + itemName + "------");
 
-            if (itemStackCount.transform.parent.gameObject.name.Contains(itemName))//spaghettikki
+            if (parentName.Contains(itemName))//spaghettikki
             {
                 itemStackCount.GetComponent<TextMeshProUGUI>().text = itemQuantity.ToString() + "x";
+                return;
             }
         }
     }
