@@ -14,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float dashCooldown;
     [SerializeField] private float maxHealth;
     [SerializeField] public float currentHealth;
+    [SerializeField] public float healthRegen;
 
     private Rigidbody2D rb;
     private Vector2 movementDirection;
@@ -21,7 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool isDashing = false;
     public bool iFrame = false;
     public float iFrameTimer = 0;
-
+    public bool hpRegenBool = false;
 
     public Dictionary<Stat, float> stats = new Dictionary<Stat, float>();
     public kuolemaRuutu kuolemaRuutu;
@@ -38,7 +39,8 @@ public class PlayerBehaviour : MonoBehaviour
         movementSpeed,
         dashSpeedFactor,
         dashCooldown,
-        currentHealth
+        currentHealth,
+        healthRegen
     }
     void Start()
     {
@@ -69,6 +71,11 @@ public class PlayerBehaviour : MonoBehaviour
             iFrame = false;
             animator.SetBool("iFrameFlashing", false);
             rb.excludeLayers = 0;
+        }
+
+        if (hpRegenBool == true)
+        {
+            StartHealthRegen(GetStat(Stat.healthRegen));
         }
 
         if (Input.GetKeyUp(KeyCode.UpArrow))
@@ -116,6 +123,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        hpRegenBool = true;
         float newHealth = GetStat(Stat.currentHealth) - damage;
         UpdateStat(Stat.currentHealth, newHealth);
         if (newHealth != currentHealth)
@@ -132,6 +140,25 @@ public class PlayerBehaviour : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    //_____________________________________Hp Regen______________________________________________________
+    public IEnumerator HealthRegenCoroutine(float regenAmount)
+    {
+        while (GetStat(Stat.currentHealth) < GetStat(Stat.maxHealth))
+        {
+            UpdateStat(Stat.currentHealth, GetStat(Stat.currentHealth) + regenAmount);
+            healthBar.SetHealth();
+            Debug.Log("current health: " + GetStat(Stat.currentHealth));
+
+            yield return new WaitForSeconds(2f); // 2sekunnin delay tos loopis bro
+        }
+    }
+
+    public void StartHealthRegen(float regenAmount)
+    {
+        StartCoroutine(HealthRegenCoroutine(regenAmount));
+        hpRegenBool = false;
+    }
+    //_________________________________________________________________________________________________
 
     private void SetPlayerStats() //asettaa pelaajan kaikki statsit Dictionaryyn "Stat".
     {
@@ -140,6 +167,7 @@ public class PlayerBehaviour : MonoBehaviour
         stats.Add(Stat.dashSpeedFactor, dashSpeedFactor = 20);
         stats.Add(Stat.movementSpeed, movementSpeed = 8);
         stats.Add(Stat.currentHealth, maxHealth);
+        stats.Add(Stat.healthRegen, healthRegen = 1);
 
         // siirsin clampin tänne. pitäis pitää maxhealth ja 0 helarajat.
         Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -174,6 +202,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (expcounter.GetExp >= expcounter.GetExpToNextLevel)
         {
+            hpRegenBool = false;
             float expOverFlow = expcounter.GetExp - expcounter.GetExpToNextLevel; // ylijäämä exp levelupista
             // päivittää levelin ja resettaa setit 
             expcounter.ResetExp();
