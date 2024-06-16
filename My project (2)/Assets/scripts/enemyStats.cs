@@ -13,66 +13,17 @@ public class enemyStats : MonoBehaviour
     {
         enemyCurrentHealth = enemyMaxHealth;
         healthBar.SetEnemyHealth(enemyMaxHealth);
-
-        /* switch (enemyType)
-         {
-            case "valkoMonsu":
-                SetEnemyStats
-                (
-                    health;
-                    damage;
-                    speed;
-                    knockbackRes;
-                    damageRes;
-                )
-                break;
-
-            case "normiMonsu":
-                SetEnemyStats
-                (
-                    health;
-                    damage;
-                    speed;
-                    knockbackRes;
-                    damageRes;
-                )
-                break;
-            
-            case "mangoLoco":
-                SetEnemyStats
-                (
-                    health;
-                    damage;
-                    speed;
-                    knockbackRes; 
-                    damageRes;
-                )
-                break;
-         }*/
     }
-
-    /*
-        void SetEnemyStats (float health, float damage, float speed, float knockbackRes, float damageRes)
-        {
-            EnemyStats stats = GetComponent<EnemyStats>();
-            if (stats != null)
-        {
-            stats.health = health;
-            stats.damage = damage;
-            stats.speed = speed
-        }
-        }
-    */
 
     void Update()
     {
         healthBar.SetEnemyHealth(enemyCurrentHealth);
     }
 
-    public void TakeDamage(int enemyDamage) // maxhealth minhealth
+    public void TakeDamage(int damageToEnemy) // maxhealth minhealth
     {
         int enemyOldHealth = enemyCurrentHealth;
-        enemyCurrentHealth -= enemyDamage;
+        enemyCurrentHealth -= damageToEnemy;
 
         enemyCurrentHealth = Mathf.Clamp(enemyCurrentHealth, 0, enemyMaxHealth);
 

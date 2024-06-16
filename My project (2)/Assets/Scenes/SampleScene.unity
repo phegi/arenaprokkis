@@ -1240,8 +1240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0c557b6249784aa0f95d650c96013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 30
-  enemyCurrentHealth: 30
+  enemyMaxHealth: 350
+  enemyCurrentHealth: 0
   healthBar: {fileID: 1024391830}
 --- !u!4 &792664181 stripped
 Transform:
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider1: {fileID: 1024391831}
   fill1: {fileID: 140488080}
-  enemyStats: {fileID: 743506293}
+  enemyStats: {fileID: 0}
 --- !u!114 &1024391831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4291,7 +4291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -293, y: -0.000030517578}
+  m_AnchoredPosition: {x: -293, y: 0}
   m_SizeDelta: {x: -1442.3204, y: -438.9004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3769598486034554686
