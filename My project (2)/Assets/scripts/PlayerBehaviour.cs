@@ -128,8 +128,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
+        
     }
 
     private void SetPlayerStats() //asettaa pelaajan kaikki statsit Dictionaryyn "Stat".
@@ -139,9 +140,7 @@ public class PlayerBehaviour : MonoBehaviour
         stats.Add(Stat.dashSpeedFactor, dashSpeedFactor = 20);
         stats.Add(Stat.movementSpeed, movementSpeed = 8);
         stats.Add(Stat.currentHealth, maxHealth);
-
-
-    }
+    } 
 
     public float GetStat(Stat stat) //Hakee pelaajan yksittäisen statsin Dictionarysta.
     {
