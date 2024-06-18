@@ -131,41 +131,37 @@ public class PlayerBehaviour : MonoBehaviour
         }
         if (hpRegenBool)
         {
-            StopCoroutine(HealthRegenStartTimer());
-            StopCoroutine(HealthRegenCoroutine(GetStat(Stat.healthRegen)));
+            StopAllCoroutines();
         }
         hpRegenBool = false;
         StartCoroutine(HealthRegenStartTimer());
     }
-    //_____________________________________Hp Regen__________Täs on joku vitun outo bugi et toi stäkkääntyy välil toi looppi ja välil ei????
-    
+    //_____________________________________Hp Regen___________________________________________________
+
     public IEnumerator HealthRegenCoroutine(float regenAmount)
     {
+        if (hpRegenBool) yield break; //tää line preventtaa ettei tää looppi stäkkää. Tärkee!
+        Debug.Log("hela regeni paska päällä");
         hpRegenBool = true;
-        while (GetStat(Stat.currentHealth) < GetStat(Stat.maxHealth) && hpRegenBool == true)
+        while (GetStat(Stat.currentHealth) < GetStat(Stat.maxHealth) && hpRegenBool)
         {
             UpdateStat(Stat.currentHealth, GetStat(Stat.currentHealth) + regenAmount);
-            healthBar.SetHealth();
-            Debug.Log("current health: " + GetStat(Stat.currentHealth));
-
-            yield return new WaitForSeconds(2f); // 2sekunnin delay tos loopis bro
-            if (GetStat(Stat.currentHealth) == GetStat(Stat.maxHealth))
+            if (GetStat(Stat.currentHealth) >= GetStat(Stat.maxHealth))
             {
+                UpdateStat(Stat.currentHealth, GetStat(Stat.maxHealth));
                 healthBar.SetHealth();
                 hpRegenBool = false;
                 Debug.Log("current healthg after : " + GetStat(Stat.currentHealth));
                 break;
             }
-            if (hpRegenBool == false)
-            {
-                StopCoroutine(HealthRegenCoroutine(regenAmount));
-                break;
-            }
+            Debug.Log("current health: " + GetStat(Stat.currentHealth));
+            healthBar.SetHealth();
+            yield return new WaitForSeconds(2f); // 2sekunnin delay tos loopis bro
         }
-        hpRegenBool = false;
     }
-    public IEnumerator HealthRegenStartTimer()
+    public IEnumerator HealthRegenStartTimer() // 5 sekunnin delay ennen kuin regen alkaa
     {
+        StopCoroutine(HealthRegenCoroutine(GetStat(Stat.healthRegen)));
         yield return new WaitForSeconds(5f);
         StartCoroutine(HealthRegenCoroutine(GetStat(Stat.healthRegen)));
     }
@@ -178,7 +174,7 @@ public class PlayerBehaviour : MonoBehaviour
         stats.Add(Stat.dashSpeedFactor, dashSpeedFactor = 20);
         stats.Add(Stat.movementSpeed, movementSpeed = 8);
         stats.Add(Stat.currentHealth, maxHealth);
-        stats.Add(Stat.healthRegen, healthRegen = 1);
+        stats.Add(Stat.healthRegen, healthRegen = 3);
 
         // siirsin clampin tänne. pitäis pitää maxhealth ja 0 helarajat.
         Mathf.Clamp(currentHealth, 0, maxHealth);
