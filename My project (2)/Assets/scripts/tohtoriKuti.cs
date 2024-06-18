@@ -11,7 +11,7 @@ public class TohtoriKuti : MonoBehaviour
     private Rigidbody2D rb;
     public float lifeTime = 5;
     public float knockbackForce;
-    public enemyStats enemyStats;
+    public enemyBehaviour enemyStats;
     private float timer = 0;
 
     // Start is called before the first frame update
@@ -69,7 +69,7 @@ public class TohtoriKuti : MonoBehaviour
                 colliderRigidbody.AddForce(-direction * knockbackForce, ForceMode2D.Force);
             }
             Destroy(gameObject);
-            collision.gameObject.GetComponent<enemyStats>().TakeDamage(10);
+            collision.gameObject.GetComponent<enemyBehaviour>().TakeDamage(10);
         }
 
         else

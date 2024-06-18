@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class enemyStats : MonoBehaviour
+public class enemyBehaviour : MonoBehaviour
 {
     [SerializeField]
-    public int enemyMaxHealth = 350;
+    public enemyStatsSO enemyStats;
     public int enemyCurrentHealth;
     public vihuHelaBaari healthBar;
 
     void Start()
     {
+        int enemyMaxHealth = enemyStats.getEnemyMaxHealth;
         enemyCurrentHealth = enemyMaxHealth;
-        healthBar.SetEnemyHealth(enemyMaxHealth);
+        healthBar.SetEnemyMaxHealth(enemyMaxHealth);
     }
 
     void Update()
@@ -25,7 +27,7 @@ public class enemyStats : MonoBehaviour
         int enemyOldHealth = enemyCurrentHealth;
         enemyCurrentHealth -= damageToEnemy;
 
-        enemyCurrentHealth = Mathf.Clamp(enemyCurrentHealth, 0, enemyMaxHealth);
+        enemyCurrentHealth = Mathf.Clamp(enemyCurrentHealth, 0, enemyStats.getEnemyMaxHealth);
 
         if (enemyOldHealth != enemyCurrentHealth)
         {

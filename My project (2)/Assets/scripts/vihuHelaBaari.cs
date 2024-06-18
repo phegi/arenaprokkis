@@ -8,12 +8,12 @@ public class vihuHelaBaari : MonoBehaviour
 {
     public Slider slider1;
     public Image fill1;
-    public enemyStats enemyStats;
+    public enemyBehaviour enemyStats;
 
 
-    public void SetEnemyMaxHealth()
+    public void SetEnemyMaxHealth(int health)
     {
-        slider1.maxValue = enemyStats.enemyMaxHealth;
+        slider1.maxValue = health;
         slider1.value = slider1.maxValue;
     }
 
