@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 933319910362361871}
   - component: {fileID: 611170930344250261}
   m_Layer: 8
-  m_Name: valkoMonsu
+  m_Name: valkoMonsuAmpuva
   m_TagString: Enemy
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0c557b6249784aa0f95d650c96013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 1f7948e6ea136814fa8b785dbe631e39, type: 2}
+  enemyStats: {fileID: 11400000, guid: 606aadfa2affc17439430de11c44a3d7, type: 2}
   enemyCurrentHealth: 0
   healthBar: {fileID: 1243048745868072778}
 --- !u!1 &6866097694164096543

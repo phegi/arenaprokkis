@@ -28,6 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
     public helaBaari healthBar;
 
 
+
     public enum Stat  // KUN HAKEE STATSIÄ, KÄYTÄ GetStat(Stat."statin nimi") !!
     {
 
@@ -77,14 +78,6 @@ public class PlayerBehaviour : MonoBehaviour
             healthBar.SetMaxHealth();
             healthBar.SetHealth();
         }
-
-
-
-        //helabaarin pitäis nyt päivittyä pelkästään dictionaryn mukaan
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            TakeDamage(10);
-        }
     }
 
     void FixedUpdate()
@@ -102,8 +95,13 @@ public class PlayerBehaviour : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && !iFrame)
-        {
-            TakeDamage(10);
+        { // tarkistaa onko ?null. hakeee enemyBehaviour scriptista määrän joka hakee vihollisen omasta SO:sta
+            int? contactDamage = collision.gameObject.GetComponent<enemyBehaviour>()?.enemyContactDamage;
+            if (contactDamage.HasValue)
+            {
+                TakeDamage(contactDamage.Value);
+            }
+
             animator.SetBool("iFrameFlashing", true);
             iFrame = true;
             iFrameTimer = 2f;
@@ -113,8 +111,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        float newHealth = GetStat(Stat.currentHealth) - damage;
-        UpdateStat(Stat.currentHealth, newHealth);
+
+        float newHealth = GetStat(Stat.currentHealth) - damage; // haetaan damagemääärä vihollisen SO:sta. 
+
+
+
+        UpdateStat(Stat.currentHealth, newHealth); // ei vaadi enää damagemäärän asettamista itse.
+        // vaatii sen, että eri asioiden damageille luodaan omat arvot
+        // esim jos tehään laavaa yms niin pitää luoda laavan damagelle arvo ja lisätä se tänne. laavalle voi käyttää myös samaa vihollisen
+        // scriptable objectia 
         if (newHealth != currentHealth)
         {
             healthBar.SetHealth();
@@ -130,8 +135,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
+
 
     private void SetPlayerStats() //asettaa pelaajan kaikki statsit Dictionaryyn "Stat".
     {
@@ -140,7 +145,7 @@ public class PlayerBehaviour : MonoBehaviour
         stats.Add(Stat.dashSpeedFactor, dashSpeedFactor = 20);
         stats.Add(Stat.movementSpeed, movementSpeed = 8);
         stats.Add(Stat.currentHealth, maxHealth);
-    } 
+    }
 
     public float GetStat(Stat stat) //Hakee pelaajan yksittäisen statsin Dictionarysta.
     {

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82e1f206b85569b449a95e2b469fec14, type: 3}
-  m_Name: enemy1
+  m_Name: valkoMonsuBruteStats
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 357.4
-  enemyContactDamage: 10
+  enemyMaxHealth: 0
+  enemyContactDamage: 0
   enemySpeed: 0
